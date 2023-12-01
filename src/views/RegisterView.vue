@@ -1,6 +1,6 @@
 <template>
 
-  <div class="container text-center">
+  <div class="container text-center position-fixed start-50 top-50 translate-middle">
     <div class="row justify-content-center">
 
       <div class="col col-4">
@@ -14,10 +14,10 @@
           <label for="floatingPassword">Choose a password</label>
         </div>
         <div class="form-floating">
-          <input v-model="password" type="password" class="form-control" id="floatingPassword">
-          <label for="floatingPassword">Confirm password</label>
+          <input v-model="passwordVerify" type="password" class="form-control" id="floatingPassword">
+          <label for="floatingPassword">Verify password</label>
         </div>
-        <button @click="registerNewUser" type="submit" class="btn btn-primary">Register</button>
+        <button @click="addNewUser" type="submit" class="btn btn-primary m-3">Register</button>
 
 
       </div>
@@ -30,6 +30,27 @@
 <script>
 
 export default {
+  name: 'RegisterView',
+  data() {
+    return {
+      username: '',
+      password: '',
+      passwordVerify: '',
+    }
+  },
+  methods: {
+    addNewUser() {
+      if (this.verifyPasswordsMatch()) {
+        this.sendAddNewUserRequest();
+      }
+    },
+
+    verifyPasswordsMatch() {
+        return  this.password === this.passwordVerify
+    },
+
+
+  }
 
 }
 
