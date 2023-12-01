@@ -1,7 +1,7 @@
 <template>
   <div class="login">
     <img src="../assets/ahvike-08.png" width="200"/>
-    <div class="container text-center">
+    <div class="container text-center" @keydown.enter="login">
       <div class="row justify-content-center">
 
         <div class="col col-3">
@@ -14,7 +14,7 @@
           </div>
           <button @click="login" type="submit" class="btn btn-primary">Log in</button>
           <h3>Not yet a member?</h3>
-          <button type="button" class="btn btn-primary">JOIN THE FUN!</button>
+          <button @click="registerNewUser" type="button" class="btn btn-primary">JOIN THE FUN!</button>
 
 
         </div>
@@ -63,6 +63,7 @@ export default {
           }
       ).then(response => {
         this.loginResponse = response.data
+        this.handleSuccessfulLogin();
       }).catch(error => {
         const errorResponseBody = error.response.data
       })
@@ -73,6 +74,10 @@ export default {
       sessionStorage.setItem('roleName', this.loginResponse.roleName)
       this.$emit('event-update-nav-menu')
       router.push({name: 'homeRoute'})
+    },
+
+    registerNewUser() {
+      router.push({name: 'registerRoute'})
     },
   }
 

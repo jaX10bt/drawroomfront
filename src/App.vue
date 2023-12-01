@@ -1,9 +1,38 @@
 <template>
   <nav>
-    <router-link to="/"></router-link>
+    <template v-if="isLoggedIn">
+
+      <router-link to="/profile">My Profile</router-link>
+      <router-link to="/forum">DrawRoom</router-link>
+      <router-link to="/search">Find Users</router-link>
+
+    </template>
   </nav>
-  <router-view/>
+  <router-view @event-update-nav-menu="updateNavMenu"/>
 </template>
+
+<script>
+
+import router from "@/router";
+
+export default {
+  data() {
+    return {
+      isLoggedIn: false,
+      isAdmin: false
+    }
+  },
+  methods: {
+    updateNavMenu() {
+      const userId = sessionStorage.getItem('userId')
+      this.isLoggedIn = userId !== null
+      const roleName = sessionStorage.getItem('roleName')
+      this.isAdmin = roleName === 'admin'
+    },
+  }
+}
+
+</script>
 
 <style>
 #app {
