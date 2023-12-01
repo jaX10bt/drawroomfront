@@ -1,6 +1,6 @@
 <template>
   <nav>
-    <router-link to="/">Home</router-link>
+    <router-link to="/"></router-link>
   </nav>
   <router-view/>
 </template>
@@ -15,6 +15,10 @@
   text-align: center;
   background-color: #c9c9c9;
   min-height: 100vh;
+}
+
+h3 {
+  margin: 30px;
 }
 
 nav {
