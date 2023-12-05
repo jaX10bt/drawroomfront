@@ -1,6 +1,6 @@
 <template>
   <div class="login">
-    <img src="../assets/ahvike-08.png" width="200"/>
+<!--    <img src="../assets/ahvike-08.png" width="200"/>-->
     <div class="container text-center position-fixed start-50 top-50 translate-middle" @keydown.enter="login">
       <div class="row justify-content-center">
 
@@ -13,14 +13,15 @@
             <input v-model="password" type="password" class="form-control" PLACEHOLDER="Password" aria-label="Password" aria-describedby="basic-addon1">
           </div>
           <button @click="login" type="submit" class="btn btn-primary">Log in</button>
-          <h3>Not yet a member?</h3>
-          <button @click="registerNewUser" type="button" class="btn btn-primary">JOIN THE FUN!</button>
-
 
         </div>
 
       </div>
     </div>
+    <footer class="text-center fixed-bottom mb-5">
+      <h5 class="m-3">Not yet a member?</h5>
+      <button @click="registerNewUser" type="button" class="btn btn-primary mb-5">JOIN THE FUN!</button>
+    </footer>
 
   </div>
 </template>
