@@ -1,21 +1,18 @@
 <template>
 
   <div class="container text-center position-fixed start-50 top-50 translate-middle">
-    <canvas width="800" height="500">
-      <p>
-        Draw your own cover image!
-      </p>
-    </canvas>
+    <CoverImage/>
   </div>
 
 </template>
 
 <script>
 
-import router from "@/router";
+import CoverImage from "@/components/CoverImage.vue";
 
 export default {
   name: 'ProfileView',
+  components: {CoverImage},
   data() {
     return {
 

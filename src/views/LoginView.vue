@@ -42,7 +42,7 @@ export default {
   components: {ErrorAlert},
   data() {
     return {
-      errorMessage:'',
+      errorMessage: '',
       username: '',
       password: '',
       loginResponse: {

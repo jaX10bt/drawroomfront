@@ -15,3 +15,7 @@
     -moz-border-radius: 0;
     border-radius: 0;
 }
+
+#coverCanvas {
+    border: 1px solid grey;
+}

@@ -30,6 +30,7 @@ export default {
       this.isAdmin = roleName === 'admin'
     },
   },
+
   mounted() {
     this.updateNavMenu()
   }
