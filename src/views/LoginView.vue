@@ -7,10 +7,10 @@
         <div class="col col-3">
 
           <div class="input-group mb-3">
-            <input v-model="username" type="text" class="form-control" PLACEHOLDER="Username" aria-label="Username" aria-describedby="basic-addon1">
+            <input v-model="username" type="text" class="form-control" PLACEHOLDER="Username">
           </div>
           <div class="input-group mb-3">
-            <input v-model="password" type="password" class="form-control" PLACEHOLDER="Password" aria-label="Password" aria-describedby="basic-addon1">
+            <input v-model="password" type="password" class="form-control" PLACEHOLDER="Password">
           </div>
           <button @click="login" type="submit" class="btn btn-primary">Log in</button>
 

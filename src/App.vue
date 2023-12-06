@@ -29,6 +29,9 @@ export default {
       const roleName = sessionStorage.getItem('roleName')
       this.isAdmin = roleName === 'admin'
     },
+  },
+  mounted() {
+    this.updateNavMenu()
   }
 }
 
@@ -57,6 +60,8 @@ nav {
 nav a {
   font-weight: bold;
   color: #2c3e50;
+  text-decoration: none;
+  padding: 30px;
 }
 
 nav a.router-link-exact-active {
