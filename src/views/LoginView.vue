@@ -1,6 +1,6 @@
 <template>
   <div class="login">
-<!--    <img src="../assets/ahvike-08.png" width="200"/>-->
+    <img src="../assets/ahvike-08.png" width="200"/>
     <div class="container text-center position-fixed start-50 top-50 translate-middle" @keydown.enter="login">
       <div class="row justify-content-center">
 

@@ -3,7 +3,6 @@
 </template>
 
 <script>
-console.log("Olen siin ErrorView.vue")
 
 export default {
   name: 'ErrorView'
