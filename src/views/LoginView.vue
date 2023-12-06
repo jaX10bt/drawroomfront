@@ -1,5 +1,10 @@
 <template>
   <div class="login">
+    <div class="row justify-content-center">
+      <div class="col col-3">
+        <ErrorAlert :error-message="errorMessage"/>
+      </div>
+    </div>
     <img src="../assets/ahvike-08.png" width="200"/>
     <div class="container text-center position-fixed start-50 top-50 translate-middle" @keydown.enter="login">
       <div class="row justify-content-center">
@@ -30,11 +35,14 @@
 
 
 import router from "@/router";
+import ErrorAlert from "@/components/ErrorAlert.vue";
 
 export default {
   name: 'LoginView',
+  components: {ErrorAlert},
   data() {
     return {
+      errorMessage:'',
       username: '',
       password: '',
       loginResponse: {
@@ -94,7 +102,8 @@ export default {
     },
 
     handleRequiredFieldsAlert() {
-      this.errorMessage = 'Täida kõik väljad'
+      this.errorMessage = 'Fill all fields!'
+      setTimeout(this.resetErrorMessage, 4000)
 
     },
 
