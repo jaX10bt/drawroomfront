@@ -3,12 +3,18 @@ import HomeView from '../views/HomeView.vue'
 import LoginView from "@/views/LoginView.vue"
 import RegisterView from "@/views/RegisterView.vue"
 import ProfileView from "@/views/ProfileView.vue";
+import ErrorView from "@/views/ErrorView.vue";
 
 const routes = [
   {
     path: '/',
     name: 'loginRoute',
     component: LoginView
+  },
+  {
+    path: '/error',
+    name: 'errorRoute',
+    component: ErrorView
   },
   {
     path: '/home',
