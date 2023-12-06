@@ -7,10 +7,10 @@
         <div class="col col-3">
 
           <div class="input-group mb-3">
-            <input v-model="username" type="text" class="form-control" PLACEHOLDER="Username">
+            <input v-model="username" type="text" class="form-control" PLACEHOLDER="Username" aria-label="Username" aria-describedby="basic-addon1">
           </div>
           <div class="input-group mb-3">
-            <input v-model="password" type="password" class="form-control" PLACEHOLDER="Password">
+            <input v-model="password" type="password" class="form-control" PLACEHOLDER="Password" aria-label="Password" aria-describedby="basic-addon1">
           </div>
           <button @click="login" type="submit" class="btn btn-primary">Log in</button>
 
@@ -40,13 +40,19 @@ export default {
       loginResponse: {
         userId: 0,
         roleName: ''
+      },
+      errorResponse: {
+        message:'',
+        errorCode: 0
       }
     }
   },
   methods: {
     login() {
       if (this.allRequiredFieldsAreFilled()) {
-        this.sendLoginRequest()
+        this.sendLoginRequest();
+      } else {
+        this.handleRequiredFieldsAlert();
       }
 
     },
@@ -66,7 +72,7 @@ export default {
         this.loginResponse = response.data
         this.handleSuccessfulLogin();
       }).catch(error => {
-        const errorResponseBody = error.response.data
+        this.handleUnSuccessfulLogin(error);
       })
     },
 
@@ -75,6 +81,25 @@ export default {
       sessionStorage.setItem('roleName', this.loginResponse.roleName)
       this.$emit('event-update-nav-menu')
       router.push({name: 'homeRoute'})
+    },
+
+    handleUnSuccessfulLogin (error) {
+      this.errorResponse = error.response.data
+      const httpStatusCode = error.response.status
+      if (httpStatusCode === 403 && this.errorResponse.errorCode === 111) {
+        this.errorMessage = this.errorResponse.message
+      } else {
+        router.push ({name: 'errorRoute'})
+      }
+    },
+
+    handleRequiredFieldsAlert() {
+      this.errorMessage = 'Täida kõik väljad'
+
+    },
+
+    resetErrorMessage() {
+      this.errorMessage = ''
     },
 
     registerNewUser() {
