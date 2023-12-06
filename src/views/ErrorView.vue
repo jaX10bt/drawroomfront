@@ -1,5 +1,5 @@
 <template>
-  <h1>Uups! Midagi läks valesti :)</h1>
+  <h1>Oops! Something went wrong. :)</h1>
 </template>
 
 <script>
