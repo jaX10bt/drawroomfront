@@ -1,0 +1,51 @@
+<template>
+  <div v-if="isOpen" class="modal fade show d-block" tabindex="-1" @click="closeModal">
+    <div class="modal-dialog translate-middle-x" @click.stop>
+      <div class="modal-content" style="border: thistle 2px solid;">
+        <div class="modal-header border-0 bg-dark bg-gradient">
+          <!--                    <h1 class="modal-title fs-5" id="exampleModalLabel">-->
+          <h2 class="modal-title w-100 text-center" id="exampleModalLabel">
+            <slot name="header">
+              Default title
+            </slot>
+          </h2>
+          <button type="button" class="btn-close p-4 position-fixed top-0 end-0" aria-label="Close"
+                  @click="closeModal"></button>
+        </div>
+        <div class="modal-body">
+          <slot name="body">
+            default body
+          </slot>
+        </div>
+        <div class="modal-footer border-0 justify-content-center">
+          <slot name="footer">
+          </slot>
+          <button type="button" class="btn btn-secondary" @click="closeModal">{{ closeButtonName }}</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+export default {
+  name: 'Modal',
+  props: {
+    closeButtonName: String
+  },
+  data() {
+    return {
+      isOpen: false,
+    }
+  },
+  methods: {
+    openModal() {
+      this.isOpen = true
+    },
+
+    closeModal() {
+      this.isOpen = false
+    }
+  }
+}
+</script>
