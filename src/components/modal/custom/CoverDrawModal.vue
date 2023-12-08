@@ -1,5 +1,5 @@
 <template>
-  <Modal ref="modalRef" close-button-name="Sulge">
+  <Modal ref="modalRef" close-button-name="CLOSE">
     <template #header>
       <p>PEALKIRI</p>
     </template>
@@ -8,7 +8,7 @@
       <div class="container text-center">
         <div class="row justify-content-center">
           <div class="col">
-            <canvas ref="coverCanvas" id="coverCanvas" width="1000" height="500" @mousedown="beginDrawing" @mousemove="keepDrawing"
+            <canvas ref="coverCanvas" id="coverCanvas" width="900" height="500" @mousedown="beginDrawing" @mousemove="keepDrawing"
                     @mouseup="stopDrawing">
               <p>
                 Draw your own cover image!
@@ -48,13 +48,13 @@
 
 <script>
 import Modal from "@/components/modal/Modal.vue";
-import CoverImage from "@/components/image/CoverImage.vue";
+import CoverImage from "@/components/image/CoverImageDisplay.vue";
 
 export default {
   name: 'CoverDrawModal',
   components: {CoverImage, Modal},
   props: {
-    profileImageInfo: {}
+    coverData: ''
   },
   data() {
     return {
@@ -66,6 +66,10 @@ export default {
     }
   },
   methods: {
+    setImageBase() {
+
+    },
+
     drawLine(x1, y1, x2, y2) {
       this.canvas.beginPath();
       this.canvas.strokeStyle = 'black';
@@ -107,7 +111,7 @@ export default {
     },
   },
   mounted() {
-    this.canvas = this.$refs.coverCanvas.getContext('2d')
+    this.canvas = this.$refs.coverCanvas.getContext('2d');
   }
 }
 </script>
