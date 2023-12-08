@@ -5,6 +5,7 @@
       <router-link to="/profile">My Profile</router-link>
       <router-link to="/forum">DrawRoom</router-link>
       <router-link to="/users/active">Find Users</router-link>
+      <a href="#" @click="handleLogOut">LOGI VÄLJA</a>
 
     </template>
   </nav>
@@ -28,6 +29,13 @@ export default {
       this.isLoggedIn = userId !== null
       const roleName = sessionStorage.getItem('roleName')
       this.isAdmin = roleName === 'admin'
+    },
+
+    handleLogOut() {
+      sessionStorage.clear()
+      this.updateNavMenu()
+      router.push({name: 'loginRoute'})
+
     },
   },
 

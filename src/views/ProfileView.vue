@@ -1,6 +1,4 @@
 <template>
-<!--  <CoverDrawModal ref="coverDrawModalRef" :cover-data="profileInfo.coverData"/>-->
-<!--  <div class="container text-center position-fixed start-50 top-50 translate-middle">-->
 
   <div>
 
@@ -21,7 +19,6 @@
 </template>
 
 <script>
-
 import CoverImageDisplay from "@/components/image/CoverImageDisplay.vue";
 import CoverImageDraw from "@/components/image/CoverImageDraw.vue";
 

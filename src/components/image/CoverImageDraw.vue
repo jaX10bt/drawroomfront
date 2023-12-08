@@ -1,20 +1,17 @@
 <template>
-<!--  <div class="row justify-content-center">-->
+  <div>
     <div>
       <canvas ref="coverCanvas" id="coverCanvas" width="900" height="500" @mousedown="beginDrawing"
               @mousemove="keepDrawing"
               @mouseup="stopDrawing">
-        <p>
-          Draw your own cover image!
-        </p>
+        <p>Draw your own cover image!</p>
       </canvas>
     </div>
-<!--    <div class="col col-sm-2">-->
-<!--      <label for="brushSize" class="form-label">Brush size</label>-->
-<!--      <input type="range" class="form-range" min="1" max="10" id="brushSize">-->
-<!--      <button @click="setAndEmitImageData" type="submit" class="btn btn-primary m-3">Save Cover</button>-->
-<!--    </div>-->
-<!--  </div>-->
+    <div class="col col-sm-2">
+      <label for="brushSize" class="form-label">Brush size</label>
+      <input v-model="brushSize" @change="updateBrushSize" type="range" class="form-range" min="1" max="10" id="brushSize">
+    </div>
+  </div>
 </template>
 
 <script>
@@ -27,6 +24,8 @@ export default {
     return {
       x: 0,
       y: 0,
+      brushSize: 1,
+      color: "#000000",
       isDrawing: false,
       canvas: null,
       imageData: '',
@@ -35,10 +34,10 @@ export default {
   methods: {
     drawLine(x1, y1, x2, y2) {
       this.canvas.beginPath();
-      this.canvas.strokeStyle = 'black';
+      this.canvas.strokeStyle = this.color;
       this.canvas.lineCap = 'round';
       this.canvas.lineJoin = 'round';
-      this.canvas.lineWidth = 10;
+      this.canvas.lineWidth = this.brushSize;
       this.canvas.moveTo(x1, y1);
       this.canvas.lineTo(x2, y2);
       this.canvas.stroke();
@@ -69,6 +68,10 @@ export default {
       }
     },
 
+    updateBrushSize() {
+      this.canvas.lineWidth = this.brushSize;
+    },
+
     setAndEmitImageData() {
       this.imageData = this.$refs.coverCanvas.toDataURL();
       this.emitImageData();
@@ -89,6 +92,7 @@ export default {
   mounted() {
     this.canvas = this.$refs.coverCanvas.getContext('2d');
     this.setImageBase()
+    this.updateBrushSize()
   }
 }
 </script>
