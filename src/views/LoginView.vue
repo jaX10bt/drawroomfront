@@ -104,7 +104,6 @@ export default {
     handleRequiredFieldsAlert() {
       this.errorMessage = 'Fill all fields!'
       setTimeout(this.resetErrorMessage, 4000)
-
     },
 
     resetErrorMessage() {
@@ -114,6 +113,16 @@ export default {
     registerNewUser() {
       router.push({name: 'registerRoute'})
     },
+
+    checkIfLoggedIn() {
+      const userId = sessionStorage.getItem('userId')
+      if (userId !== null) {
+        router.push({name: 'homeRoute'})
+      }
+    },
+  },
+  mounted() {
+    this.checkIfLoggedIn();
   }
 
 }
