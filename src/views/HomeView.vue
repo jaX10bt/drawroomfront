@@ -2,9 +2,11 @@
   <div class="home">
 <h1>
   TEREKEST!
+
 </h1>
   </div>
 </template>
+
 
 <script>
 
