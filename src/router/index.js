@@ -33,7 +33,7 @@ const routes = [
     component: ProfileView
   },
   {
-    path: '/search',
+    path: '/users/active',
     name: 'searchRoute',
     component: SearchView
   }

@@ -4,7 +4,7 @@
 
       <router-link to="/profile">My Profile</router-link>
       <router-link to="/forum">DrawRoom</router-link>
-      <router-link to="/search">Find Users</router-link>
+      <router-link to="/users/active">Find Users</router-link>
 
     </template>
   </nav>
