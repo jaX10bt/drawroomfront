@@ -20,6 +20,8 @@
 
 <script>
 
+import router from "@/router";
+
 export default {
   name: 'DynamicUsersList',
 
@@ -32,15 +34,14 @@ export default {
   },
 
   methods: {
-    fetchActiveUsers: function () {
+    fetchActiveUsers() {
       this.$http.get("/users/active")
           .then(response => {
             this.users = response.data
             this.filteredUsers = this.users
           })
           .catch(error => {
-            console.error("Error fetching active users:", error);
-            //const errorResponseBody = error.response.data
+            router.push({name: 'errorRoute'})
           })
     },
 
