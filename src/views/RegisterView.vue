@@ -32,6 +32,7 @@
 <script>
 
 import ErrorAlert from "@/components/ErrorAlert.vue";
+import router from "@/router";
 
 export default {
   name: 'RegisterView',
@@ -73,7 +74,8 @@ export default {
             }
           }
       ).then(response => {
-        const responseBody = response.data
+        this.navigateToLoginView()
+        // const responseBody = response.data
       }).catch(error => {
         const errorResponseBody = error.response.data
       })
@@ -91,6 +93,10 @@ export default {
 
     resetErrorMessage() {
       this.errorMessage = ''
+    },
+
+    navigateToLoginView() {
+      router.push({name: 'loginRoute'})
     },
 
   }
