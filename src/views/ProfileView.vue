@@ -51,10 +51,6 @@ export default {
         coverData: '',
         avatarData: ''
       },
-      // coverWidth: 900,
-      // coverHeight: 500,
-      // avatarWidth: 200,
-      // avatarHeight: 200,
     }
   },
   methods: {
