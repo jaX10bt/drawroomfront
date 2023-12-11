@@ -1,10 +1,10 @@
 <template>
   <div class="image-wrap">
     <div>
-      <canvas ref="imageCanvas" id="imageCanvas" width="900" height="500" @mousedown="beginDrawing"
+      <canvas ref="imageCanvas" id="imageCanvas" width="200" height="200" @mousedown="beginDrawing"
               @mousemove="keepDrawing"
               @mouseup="stopDrawing">
-        <p>Draw your own cover image!</p>
+        <p>Draw your own avatar image!</p>
       </canvas>
     </div>
     <div class="col col-sm-2">
@@ -17,7 +17,7 @@
 
 <script>
 export default {
-  name: 'CoverImageDraw',
+  name: 'AvatarImageDraw',
   props: {
     imageDataBase64: String,
   },
@@ -37,7 +37,7 @@ export default {
       const image = new Image();
       image.src = this.imageDataBase64;
       image.addEventListener("load", () => {
-        this.canvas.drawImage(image, 0, 0, 900, 500);
+        this.canvas.drawImage(image, 0, 0, 200, 200);
       });
     },
 

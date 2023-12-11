@@ -11,7 +11,7 @@
 
 <script>
 export default {
-  name: 'CoverImage',
+  name: 'CoverImageDisplay',
   props: {
     imageDataBase64: String
   }

@@ -1,17 +1,30 @@
 <template>
 
-  <div>
+  <!--  <div class="flex-container">-->
+  <div class="d-inline-flex">
 
-    <div v-if="isEditCover" class="container align-content-center">
+    <div v-if="isEditAvatar" class="d-flex image-wrap">
+      <AvatarImageDraw :image-data-base64="profileInfo.avatarData" @event-emit-image-data="setAvatarImage"/>
+      <button v-if="isProfileOwner" @click="updateAvatarImage" type="submit" class="btn btn-primary button-inline">
+        Save avatar
+      </button>
+    </div>
+    <div v-else class="d-flex image-wrap">
+      <AvatarImageDisplay :image-data-base64="profileInfo.avatarData"/>
+      <button v-if="isProfileOwner && !isEditCover" @click="editAvatarImage" type="submit" class="btn btn-primary button-inline">Edit avatar</button>
+    </div>
+
+    <div v-if="isEditCover" class="d-flex image-wrap">
       <CoverImageDraw :image-data-base64="profileInfo.coverData" @event-emit-image-data="setCoverImage"/>
+      <button v-if="isProfileOwner" @click="updateCoverImage" type="submit" class="btn btn-primary button-inline">
+        Save cover
+      </button>
     </div>
-    <div v-else class="container align-content-center">
+    <div v-else class="d-flex image-wrap">
       <CoverImageDisplay :image-data-base64="profileInfo.coverData"/>
-    </div>
-
-    <div v-if="isProfileOwner">
-      <button v-if="isEditCover === false" @click="editCoverImage" type="submit" class="btn btn-primary m-3">Edit cover image</button>
-      <button v-if="isEditCover === true" @click="updateCoverImage" type="submit" class="btn btn-primary m-3">Save Cover</button>
+      <button v-if="isProfileOwner && !isEditAvatar" @click="editCoverImage" type="submit" class="btn btn-primary button-inline">Edit
+        cover
+      </button>
     </div>
 
   </div>
@@ -21,21 +34,27 @@
 <script>
 import CoverImageDisplay from "@/components/image/CoverImageDisplay.vue";
 import CoverImageDraw from "@/components/image/CoverImageDraw.vue";
+import AvatarImageDisplay from "@/components/image/AvatarImageDisplay.vue";
+import AvatarImageDraw from "@/components/image/AvatarImageDraw.vue";
 
 export default {
   name: 'ProfileView',
-  components: {CoverImageDraw, CoverImageDisplay},
+  components: {AvatarImageDraw, AvatarImageDisplay, CoverImageDraw, CoverImageDisplay},
   data() {
     return {
-      isEditCover: false,
       isProfileOwner: false,
+      isEditCover: false,
+      isEditAvatar: false,
       userId: Number(sessionStorage.getItem('userId')),
-      // profileId: Number(useRoute().query.profileUserId),
       profileInfo: {
         profileUserId: 0,
         coverData: '',
         avatarData: ''
       },
+      // coverWidth: 900,
+      // coverHeight: 500,
+      // avatarWidth: 200,
+      // avatarHeight: 200,
     }
   },
   methods: {
@@ -76,11 +95,24 @@ export default {
       })
     },
 
-    // setAndUpdateCoverImage() {
-    //   this.setCoverImage();
-    //   this.updateCoverImage();
-    //   this.isEditCover = false;
-    // },
+    editAvatarImage() {
+      this.isEditAvatar = true
+    },
+
+    setAvatarImage(avatarData) {
+      this.profileInfo.avatarData = avatarData;
+    },
+
+    updateAvatarImage() {
+      this.$http.patch("/profile", this.profileInfo
+      ).then(response => {
+        this.profileInfo = response.data
+        this.isEditAvatar = false
+        this.getProfileInfo()
+      }).catch(error => {
+        const errorResponseBody = error.response.data
+      })
+    },
 
   },
   mounted() {
