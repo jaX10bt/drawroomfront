@@ -2,17 +2,12 @@
   <div>
     <div class="row justify-content-center">
       <div class="col col-4">
-    <input v-model="searchText" @input="searchUsers" placeholder="Search users..."/>
-    <ul>
-      <li v-for="user in filteredUsers" :key="user.id">
-        {{ user.username }}
-      </li>
-    </ul>
-    </div>
-    </div>
-    <div class="row justify-content-center">
-      <div class="col col-4">
-        <button type="button" class="btn btn-outline-secondary m-3">Search</button>
+        <input v-model="searchText" @input="searchUsers" @keyup.enter="submitSearch" placeholder="Search users..."/>
+        <ul>
+          <li v-for="user in filteredUsers" :key="user.id" @click="navigateToOtherProfileView(user.userId)">
+              <span style="cursor: pointer;">{{ user.userId + " " +  user.username }}</span>
+          </li>
+        </ul>
       </div>
     </div>
   </div>
@@ -21,9 +16,11 @@
 <script>
 
 import router from "@/router";
+import OtherProfileView from "@/views/OtherProfileView.vue";
 
 export default {
   name: 'DynamicUsersList',
+  components: {OtherProfileView},
 
   data() {
     return {
@@ -45,12 +42,20 @@ export default {
           })
     },
 
+    submitSearch() {
+      this.searchUsers();
+    },
+
+
     searchUsers() {
       this.filteredUsers = this.users.filter((user) =>
           user.username.toLowerCase().includes(this.searchText.toLowerCase())
       )
+    },
+
+    navigateToOtherProfileView(userId) {
+      router.push({name: 'otherProfileRoute', query: {userId: userId}});
     }
-    ,
   },
 
   mounted() {

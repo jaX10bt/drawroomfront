@@ -5,6 +5,7 @@ import RegisterView from "@/views/RegisterView.vue"
 import ProfileView from "@/views/ProfileView.vue";
 import ErrorView from "@/views/ErrorView.vue";
 import SearchView from "@/views/SearchView.vue";
+import OtherProfileView from "@/views/OtherProfileView.vue";
 
 const routes = [
   {
@@ -36,6 +37,11 @@ const routes = [
     path: '/users/active',
     name: 'searchRoute',
     component: SearchView
+  },
+  {
+    path: '/profile/other',
+    name: 'otherProfileRoute',
+    component: OtherProfileView
   }
 
 ]

@@ -8,7 +8,7 @@
       </div>
       <div>
         <div>
-          <DynamicUsersList></DynamicUsersList>
+          <DynamicUsersList/>
         </div>
 
       </div>
@@ -21,12 +21,13 @@
 <script>
 import DynamicUsersList from "@/components/DynamicUsersList.vue";
 
+
 export default {
   name: 'SearchView',
   components: {DynamicUsersList},
   data() {
     return {
-      headerTitle: 'Search for users'
+      headerTitle: 'Find other fun people'
     }
   }
 }
