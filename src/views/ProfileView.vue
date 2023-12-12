@@ -47,6 +47,7 @@ export default {
       isEditAvatar: false,
       userId: Number(sessionStorage.getItem('userId')),
       profileInfo: {
+
         profileUserId: 0,
         coverData: '',
         avatarData: ''

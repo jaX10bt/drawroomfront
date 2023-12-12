@@ -34,6 +34,7 @@
 .image-wrap {
     display: inline-block;
     position: relative;
+    border: 1px solid black;
 }
 
 .button-inline {
@@ -42,8 +43,26 @@
     right: 0;
 }
 
+.form-range::-webkit-slider-runnable-track {
+    border-radius: 0;
+    background-color: white;
+}
+
+.form-range::-webkit-slider-thumb {
+    border-radius: 0;
+    background-color: orangered;
+}
+
+/*.canvas-container {*/
+/*    position: relative;*/
+/*    width: 600px;*/
+/*    height: 100px;*/
+/*    max-width: 100%;*/
+/*}*/
+
 canvas {
     max-width: 100%;
+    cursor: crosshair;
 }
 
 img {
