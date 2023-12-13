@@ -3,24 +3,31 @@
     <div v-for="post in postsFeed.posts">
         <Post :post="post" :key="post.postId"/>
     </div>
+    <Pagination :totalPages="postsFeed.totalPages" :pageNumber="pageNumber" @event-emit-new-page-number="setPageNumber"/>
   </div>
 </template>
 
 <script>
 import Post from "@/components/Post.vue";
+import Pagination from "@/components/Pagination.vue";
 
 export default {
   name: 'PostsFeed',
-  components: {Post},
+  components: {Pagination, Post},
   data() {
     return {
       pageNumber: 1,
-      postsPerPage: 4,
+      postsPerPage: 6,
       postsFeed: {
         totalPages: 0,
         posts: []
       }
     }
+  },
+  watch: {
+    pageNumber() {
+      this.getPosts();
+    },
   },
   methods: {
     getPosts() {
@@ -36,8 +43,12 @@ export default {
         const errorResponseBody = error.response.data
       })
     },
+
+    setPageNumber(pageNumber) {
+      this.pageNumber = pageNumber;
+    },
   },
-  mounted() {
+  beforeMount() {
     this.getPosts()
   }
 }

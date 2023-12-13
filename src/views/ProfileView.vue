@@ -1,7 +1,7 @@
 <template>
 
   <!--  <div class="flex-container">-->
-  <div class="d-inline-flex">
+  <div class="d-flex justify-content-center">
 
     <div v-if="isEditAvatar" class="d-flex image-wrap">
       <AvatarImageDraw :image-data-base64="profileInfo.avatarData" @event-emit-image-data="setAvatarImage"/>
