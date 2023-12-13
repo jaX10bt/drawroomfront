@@ -1,5 +1,5 @@
 <template>
-  <DeleteUserModal ref="deleteUserModalRef" @event-user-deleted="updateActiveUsersList"  :user="user"/>
+  <DeleteUserModal ref="deleteUserModalRef" @event-user-deleted="updateActiveUsersList" :user="user"/>
   <div>
     <div class="container text-center">
       <div class="row justify-content-center">
@@ -9,7 +9,7 @@
       </div>
       <div>
         <div>
-          <DynamicUsersList ref="dynamicUsersListRef" @event-open-delete-modal="handleOpenDeleteUserModal"/>
+          <DynamicUsersList ref="dynamicUsersListRef" @event-open-delete-modal="handleOpenDeleteUserModal" :isAdmin="isAdmin"/>
         </div>
 
       </div>
@@ -29,13 +29,13 @@ export default {
   components: {DeleteUserModal, DynamicUsersList},
   data() {
     return {
+      isAdmin: false,
       headerTitle: 'Find other fun people',
       user: {
         userId: 0,
         username: '',
         status: ''
       },
-      isAdmin: false,
     }
   },
 
@@ -45,12 +45,17 @@ export default {
       this.$refs.deleteUserModalRef.$refs.modalRef.openModal()
     },
 
-    updateActiveUsersList(){
+    updateActiveUsersList() {
       this.$refs.dynamicUsersListRef.getActiveUsers()
-    }
+    },
+
+    getAndSetIsAdmin() {
+      const roleName = sessionStorage.getItem('roleName')
+      this.isAdmin = roleName === 'admin'
+    },
   },
   mounted() {
-
+    this.getAndSetIsAdmin()
   }
 }
 

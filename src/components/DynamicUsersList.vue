@@ -4,7 +4,7 @@
     <div v-for="user in filteredUsers" :key="user.id" class="row justify-content-center">
       <div class="col col-4">
         <a href="#" @click="navigateToOtherProfileView(user.userId)">{{ user.username }}</a>
-        <font-awesome-icon @click="handleDeleteUserModal(user)"  class="ms-3 cursor-pointer" :icon="['fas', 'trash']" size="lg" />
+        <font-awesome-icon v-if="isAdmin" @click="handleDeleteUserModal(user)"  class="ms-3 cursor-pointer" :icon="['fas', 'trash']" size="lg" />
       </div>
     </div>
   </div>
@@ -18,7 +18,9 @@ import OtherProfileView from "@/views/OtherProfileView.vue";
 export default {
   name: 'DynamicUsersList',
   components: {OtherProfileView},
-
+  props: {
+    isAdmin: false
+  },
   data() {
     return {
       filteredUsers: [],
@@ -62,9 +64,8 @@ export default {
 
     navigateToOtherProfileView(userId) {
       router.push({name: 'otherProfileRoute', query: {userId: userId}});
-    }
+    },
   },
-
   mounted() {
     this.getActiveUsers()
   }
