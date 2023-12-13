@@ -1,7 +1,5 @@
 <template>
-<div>
-
-</div>
+  <img :src="PostImage.imageData">
 </template>
 
 <script>
@@ -10,7 +8,9 @@ export default {
 
 data() {
   return {
-    imageData: ''
+    PostImage: {
+      imageData: ''
+    }
   }
 
 },
@@ -19,7 +19,7 @@ methods: {
   getRandomPost () {
     this.$http.get("/post/random")
         .then(response => {
-          this.imageData = response.data
+          this.PostImage = response.data
         })
         .catch(error => {
           const errorResponseBody = error.response.data

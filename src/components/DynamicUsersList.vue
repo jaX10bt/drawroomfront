@@ -1,13 +1,10 @@
 <template>
   <div>
-    <div class="row justify-content-center">
+    <input v-model="searchText" @input="searchUsers" @keyup.enter="submitSearch" placeholder="Search users..."/>
+    <div v-for="user in filteredUsers" :key="user.id" class="row justify-content-center">
       <div class="col col-4">
-        <input v-model="searchText" @input="searchUsers" @keyup.enter="submitSearch" placeholder="Search users..."/>
-        <ul>
-          <li v-for="user in filteredUsers" :key="user.id" @click="navigateToOtherProfileView(user.userId)">
-              <span style="cursor: pointer;">{{ user.userId + " " +  user.username }}</span>
-          </li>
-        </ul>
+        <a href="#" @click="navigateToOtherProfileView(user.userId)">{{ user.username }}</a>
+        <font-awesome-icon @click="handleDeleteUserModal(user)"  class="ms-3 cursor-pointer" :icon="['fas', 'trash']" size="lg" />
       </div>
     </div>
   </div>
@@ -26,12 +23,22 @@ export default {
     return {
       filteredUsers: [],
       searchText: '',
-      users: []
+      users: [
+        {
+          userId: 0,
+          username: '',
+          status: ''
+        }
+      ]
     }
   },
 
   methods: {
-    fetchActiveUsers() {
+    handleDeleteUserModal(user) {
+      this.$emit("event-open-delete-modal", user)
+    },
+
+    getActiveUsers() {
       this.$http.get("/users/active")
           .then(response => {
             this.users = response.data
@@ -59,7 +66,7 @@ export default {
   },
 
   mounted() {
-    this.fetchActiveUsers()
+    this.getActiveUsers()
   }
 
 
