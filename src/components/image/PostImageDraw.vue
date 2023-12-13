@@ -86,10 +86,20 @@ export default {
       this.newPost.postImageData = this.$refs.imageCanvas.toDataURL();
     },
 
+    clearCanvas() {
+      this.canvas.clearRect(0, 0, 600, 100);
+    },
+
+    emitUpdateFeed() {
+      this.$emit('event-update-feed')
+    },
+
     addPost() {
       this.$http.post("/post", this.newPost
       ).then(response => {
         // this.newPost = response.data
+        this.clearCanvas()
+        this.emitUpdateFeed()
       }).catch(error => {
         const errorResponseBody = error.response.data
       })

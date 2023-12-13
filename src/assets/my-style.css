@@ -20,17 +20,6 @@
     border-radius: 0;
 }
 
-/*.flex-container {*/
-/*    display: flex;*/
-/*    background-color: DodgerBlue;*/
-/*}*/
-
-/*.flex-container > div {*/
-/*    background-color: bisque;*/
-/*    margin: 10px;*/
-/*    padding: 20px;*/
-/*}*/
-
 .image-wrap {
     display: inline-block;
     position: relative;
@@ -41,6 +30,28 @@
     position: absolute;
     top: 0;
     right: 0;
+}
+
+.post-column {
+    flex-direction: column;
+    max-width: 600px;
+}
+
+.card {
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+    background: transparent;
+}
+
+.card-body {
+    padding: 0;
+}
+
+.card-img {
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
 }
 
 .form-range::-webkit-slider-runnable-track {
@@ -67,6 +78,7 @@ canvas {
 
 img {
     max-width: 100%;
+    border: 1px solid blue;
 }
 
 #imageCanvas {

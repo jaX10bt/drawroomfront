@@ -1,28 +1,24 @@
 <template>
   <div>
-
+    <div v-for="post in postsFeed.posts">
+        <Post :post="post" :key="post.postId"/>
+    </div>
   </div>
 </template>
 
 <script>
+import Post from "@/components/Post.vue";
+
 export default {
   name: 'PostsFeed',
+  components: {Post},
   data() {
     return {
-      pageNumber: 0,
-      postsPerPage: 0,
+      pageNumber: 1,
+      postsPerPage: 4,
       postsFeed: {
         totalPages: 0,
-        posts: [
-          {
-            userId: 0,
-            username: '',
-            userAvatarImageData: '',
-            postImageData: '',
-            timestamp: '',
-            likeCount: 0
-          }
-        ]
+        posts: []
       }
     }
   },
@@ -30,7 +26,7 @@ export default {
     getPosts() {
       this.$http.get("/posts", {
             params: {
-              pageNumber: this.pageNumber,
+              pageNumber: this.pageNumber -1,
               postsPerPage: this.postsPerPage
             }
           }

@@ -1,19 +1,19 @@
 <template>
 
-  <div class="d-inline-flex">
-<!--    <PostsFeed/>-->
-    <PostImageDraw/>
+  <div>
+    <PostsFeed ref="postsFeedRef" class="d-flex flex-column-reverse align-items-center"/>
+    <PostImageDraw @event-update-feed="updateFeed" class="d-flex"/>
   </div>
 
 </template>
 
 <script>
-// import PostsFeed from "@/components/PostsFeed.vue";
+import PostsFeed from "@/components/PostsFeed.vue";
 import PostImageDraw from "@/components/image/PostImageDraw.vue";
 
 export default {
   name: "ForumView",
-  components: {PostImageDraw},
+  components: {PostsFeed, PostImageDraw},
   data() {
     return {
       userId: Number(sessionStorage.getItem('userId')),
@@ -21,6 +21,9 @@ export default {
     }
   },
   methods: {
+    updateFeed() {
+      this.$refs.postsFeedRef.getPosts()
+    },
   }
 }
 </script>
