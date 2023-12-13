@@ -3,19 +3,23 @@
   <div>
 <h1>{{userProfileInfo.username}}</h1>
   </div>
-  <div class="container align-content-center">
+  <div class="d-inline-flex">
+    <AvatarImageDisplay :image-data-base64="userProfileInfo.avatarData"/>
+  </div>
+  <div class="d-flex image-wrap">
     <CoverImageDisplay :image-data-base64="userProfileInfo.coverData"/>
   </div>
-</div>
+  </div>
 </template>
 
 <script>
 import DynamicUsersList from "@/components/DynamicUsersList.vue";
 import {useRoute} from "vue-router";
 import CoverImageDisplay from "@/components/image/CoverImageDisplay.vue";
+import AvatarImageDisplay from "@/components/image/AvatarImageDisplay.vue";
 export default {
   name: 'OtherProfileView',
-  components: {CoverImageDisplay},
+  components: {AvatarImageDisplay, CoverImageDisplay},
 
   data () {
     return {
