@@ -1,4 +1,5 @@
 <template>
+  <LogoutModal ref="logoutModalRef" @event-execute-logout="executeLogOut"/>
   <nav class="navbar navbar-expand-sm justify-content-center">
     <template v-if="isLoggedIn">
 
@@ -15,8 +16,10 @@
 <script>
 
 import router from "@/router";
+import LogoutModal from "@/components/modal/custom/LogoutModal.vue";
 
 export default {
+  components: {LogoutModal},
   data() {
     return {
       isLoggedIn: false,
@@ -32,6 +35,9 @@ export default {
     },
 
     handleLogOut() {
+      this.$refs.logoutModalRef.$refs.modalRef.openModal()
+    },
+    executeLogOut() {
       sessionStorage.clear()
       this.updateNavMenu()
       router.push({name: 'loginRoute'})
