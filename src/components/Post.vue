@@ -19,7 +19,7 @@
             <img :src="post.postImageData" class="card-img">
           </div>
           <div>
-            <font-awesome-icon @click="handleDeletePostModal(post)" class="ms-3 cursor-pointer" :icon="['fas', 'trash']"
+            <font-awesome-icon v-if="isAdmin" @click="handleDeletePostModal(post)" class="ms-3 cursor-pointer" :icon="['fas', 'trash']"
                                size="lg"/>
           </div>
         </div>
@@ -33,15 +33,8 @@ import router from "@/router";
 export default {
   name: 'Post',
   props: {
-    post: {
-      postId: 0,
-      userId: 0,
-      username: '',
-      userAvatarImageData: '',
-      postImageData: '',
-      timestamp: '',
-      likeCount: 0
-    }
+    post: {},
+    isAdmin: false
   },
   data() {
     return {
