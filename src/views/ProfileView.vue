@@ -116,11 +116,9 @@ export default {
         const errorResponseBody = error.response.data
       })
     },
-
   },
   mounted() {
     this.getProfileInfo()
   }
 }
-
 </script>

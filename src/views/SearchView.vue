@@ -16,7 +16,6 @@
 import DynamicUsersList from "@/components/DynamicUsersList.vue";
 import DeleteUserModal from "@/components/modal/custom/DeleteUserModal.vue";
 
-
 export default {
   name: 'SearchView',
   components: {DeleteUserModal, DynamicUsersList},

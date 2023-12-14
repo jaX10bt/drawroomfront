@@ -13,7 +13,6 @@
 </template>
 
 <script>
-
 import router from "@/router";
 import OtherProfileView from "@/views/OtherProfileView.vue";
 
@@ -36,7 +35,6 @@ export default {
       ]
     }
   },
-
   methods: {
     handleDeleteUserModal(user) {
       this.$emit("event-open-delete-modal", user)
@@ -71,7 +69,5 @@ export default {
   mounted() {
     this.getActiveUsers()
   }
-
-
 }
 </script>

@@ -8,9 +8,7 @@
     <img src="../assets/ahvike-08.png" width="200"/>
     <div class="container text-center position-fixed start-50 top-50 translate-middle" @keydown.enter="login">
       <div class="row justify-content-center">
-
         <div class="col col-3">
-
           <div class="input-group mb-3">
             <input v-model="username" type="text" class="form-control" PLACEHOLDER="Username" aria-label="Username" aria-describedby="basic-addon1">
           </div>
@@ -18,22 +16,17 @@
             <input v-model="password" type="password" class="form-control" PLACEHOLDER="Password" aria-label="Password" aria-describedby="basic-addon1">
           </div>
           <button @click="login" type="submit" class="btn btn-primary">Log in</button>
-
         </div>
-
       </div>
     </div>
     <footer class="text-center fixed-bottom mb-5">
       <h5 class="m-3">Not yet a member?</h5>
       <button @click="registerNewUser" type="button" class="btn btn-primary mb-5">JOIN THE FUN!</button>
     </footer>
-
   </div>
 </template>
 
 <script>
-
-
 import router from "@/router";
 import ErrorAlert from "@/components/ErrorAlert.vue";
 
@@ -62,7 +55,6 @@ export default {
       } else {
         this.handleRequiredFieldsAlert();
       }
-
     },
 
     allRequiredFieldsAreFilled() {

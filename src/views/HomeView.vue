@@ -11,16 +11,11 @@
   </div>
 </template>
 
-
 <script>
-
-
 import RandomPost from "@/components/RandomPost.vue";
 
 export default {
   name: 'HomeView',
   components: {RandomPost}
-
 }
-
 </script>

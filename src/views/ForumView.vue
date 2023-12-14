@@ -1,11 +1,10 @@
 <template>
   <DeletePostModal ref="deletePostModalRef" :post="selectedPost" @event-post-deleted="updateFeed"/>
   <div>
-    <PostsFeed ref="postsFeedRef" class="d-flex flex-column align-items-center"
+    <PostsFeed ref="postsFeedRef" class="d-flex flex-column-reverse align-items-center"
                @event-open-delete-modal="handleOpenDeletePostModal"/>
     <PostImageDraw @event-update-feed="updateFeed" class="d-flex justify-content-center" style="padding: 20px"/>
   </div>
-
 </template>
 
 <script>
@@ -33,7 +32,6 @@ export default {
     }
   },
   methods: {
-
     updateFeed() {
       this.$refs.postsFeedRef.getPosts()
     },

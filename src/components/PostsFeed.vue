@@ -1,8 +1,7 @@
 <template>
-
   <div>
     <div v-for="post in postsFeed.posts">
-        <Post ref="postRef" @event-open-delete-modal="handleOpenDeletePostModal" :isAdmin="isAdmin" :post="post" :key="post.postId"/>
+      <Post ref="postRef" @event-open-delete-modal="handleOpenDeletePostModal" :isAdmin="isAdmin" :post="post" :key="post.postId"/>
     </div>
     <Pagination :totalPages="postsFeed.totalPages" :pageNumber="pageNumber" @event-emit-new-page-number="setPageNumber"/>
   </div>
@@ -16,7 +15,6 @@ import {post} from "axios";
 export default {
   name: 'PostsFeed',
   components: {Pagination, Post},
-
   data() {
     return {
       isAdmin: false,
@@ -48,7 +46,7 @@ export default {
     getPosts() {
       this.$http.get("/posts", {
             params: {
-              pageNumber: this.pageNumber -1,
+              pageNumber: this.pageNumber - 1,
               postsPerPage: this.postsPerPage
             }
           }
