@@ -1,7 +1,8 @@
 <template>
+
   <div>
     <div v-for="post in postsFeed.posts">
-        <Post :post="post" :key="post.postId"/>
+        <Post ref="postRef" @event-open-delete-modal="handleOpenDeletePostModal" :post="post" :key="post.postId"/>
     </div>
     <Pagination :totalPages="postsFeed.totalPages" :pageNumber="pageNumber" @event-emit-new-page-number="setPageNumber"/>
   </div>
@@ -10,6 +11,7 @@
 <script>
 import Post from "@/components/Post.vue";
 import Pagination from "@/components/Pagination.vue";
+import {post} from "axios";
 
 export default {
   name: 'PostsFeed',
@@ -20,7 +22,17 @@ export default {
       postsPerPage: 6,
       postsFeed: {
         totalPages: 0,
-        posts: []
+        posts: [
+          {
+            postId: 0,
+            userId: 0,
+            username: '',
+            userAvatarImageData: '',
+            postImageData: '',
+            timestamp: '',
+            likeCount: 0
+          }
+        ]
       }
     }
   },
@@ -30,6 +42,7 @@ export default {
     },
   },
   methods: {
+    post,
     getPosts() {
       this.$http.get("/posts", {
             params: {
@@ -46,6 +59,10 @@ export default {
 
     setPageNumber(pageNumber) {
       this.pageNumber = pageNumber;
+    },
+
+    handleOpenDeletePostModal(post) {
+      this.$emit("event-open-delete-modal", post)
     },
   },
   beforeMount() {

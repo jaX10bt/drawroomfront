@@ -1,6 +1,7 @@
 <template>
 
   <div class="container">
+
     <div class="row d-inline-flex">
       <div class="d-flex">
         <div class="card">
@@ -18,6 +19,10 @@
           <div class="card-body">
             <img :src="post.postImageData" class="card-img">
           </div>
+          <div>
+            <font-awesome-icon @click="handleDeletePostModal(post)" class="ms-3 cursor-pointer" :icon="['fas', 'trash']"
+                               size="lg"/>
+          </div>
         </div>
       </div>
     </div>
@@ -27,15 +32,13 @@
 export default {
   name: 'Post',
   props: {
-    post: {
-      postId: 0,
-      userId: 0,
-      username: '',
-      userAvatarImageData: '',
-      postImageData: '',
-      timestamp: '',
-      likeCount: 0
-    }
+    post: {}
+  },
+
+  methods: {
+    handleDeletePostModal(post) {
+      this.$emit("event-open-delete-modal", post)
+    },
   }
 }
 </script>

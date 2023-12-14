@@ -34,7 +34,7 @@ export default {
         this.$refs.modalRef.closeModal()
         this.$emit("event-user-deleted")
       }).catch(error => {
-        router.push("errorRouter")
+        router.push({name:'errorRoute'})
       })
     },
   },
