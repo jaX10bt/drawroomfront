@@ -1,6 +1,6 @@
 <template>
   <div>
-    <canvas v-if="imageDataBase64 === ''" ref="imageCanvas" id="imageCanvas" width="200" height="200"></canvas>
+    <img v-if="imageDataBase64 === ''" src="../../assets/images/avatar-not-found.png"/>
     <img v-else :src="imageDataBase64">
   </div>
 </template>

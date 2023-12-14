@@ -4,7 +4,7 @@
     <div class="container text-center">
       <div class="row justify-content-center">
         <div class="col col-6">
-          <h1>{{ headerTitle }}</h1>
+          <h2>{{ headerTitle }}</h2>
         </div>
       </div>
       <DynamicUsersList ref="dynamicUsersListRef" @event-open-delete-modal="handleOpenDeleteUserModal" :isAdmin="isAdmin"/>

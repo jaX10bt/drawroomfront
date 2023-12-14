@@ -3,7 +3,7 @@
   <nav class="navbar navbar-expand-sm justify-content-center">
     <template v-if="isLoggedIn">
       <a class="home-button" href="#">
-        <img src="@/assets/ahvike-08.png" width="70" @click="routeToHomeView"/>
+        <img src="@/assets/images/ahvike-08.png" width="70" @click="routeToHomeView"/>
       </a>
       <router-link to="/profile">My Profile</router-link>
       <router-link to="/forum">DrawRoom</router-link>
