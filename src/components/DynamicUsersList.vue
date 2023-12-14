@@ -1,9 +1,9 @@
 <template>
   <div class="row justify-content-center">
-    <div class="col col-4">
-      <input v-model="searchText" @input="searchUsers" @keyup.enter="submitSearch" placeholder="Search users..."/>
-      <div v-for="user in filteredUsers" :key="user.id" class="row justify-content-center">
-        <div class="col col-4">
+    <div class="col">
+      <input v-model="searchText" @input="searchUsers" @keyup.enter="submitSearch" placeholder="Search users..." style="margin: 20px"/>
+      <div v-for="user in filteredUsers" :key="user.id" class="row justify-content-center text-start">
+        <div class="col">
           <a href="#" @click="navigateToOtherProfileView(user.userId)">{{ user.username }}</a>
           <font-awesome-icon v-if="isAdmin" @click="handleDeleteUserModal(user)"  class="ms-3 cursor-pointer" :icon="['fas', 'trash']" size="lg" />
         </div>

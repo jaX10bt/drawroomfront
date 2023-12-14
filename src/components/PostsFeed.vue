@@ -42,7 +42,6 @@ export default {
     },
   },
   methods: {
-    post,
     getPosts() {
       this.$http.get("/posts", {
             params: {

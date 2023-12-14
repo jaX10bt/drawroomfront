@@ -1,6 +1,6 @@
 <template>
-  <div class="d-flex justify-content-center">
-    <div class="d-flex">
+  <div class="d-flex justify-content-center" style="padding: 20px">
+    <div class="d-flex align-self-start">
       <div class="container">
         <AvatarImageDisplay :image-data-base64="userProfileInfo.avatarData"/>
         <div>

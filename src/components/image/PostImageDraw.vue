@@ -1,24 +1,33 @@
 <template>
-  <div>
-    <div class="image-wrap">
-
-      <div class="card">
-        <label for="brushSize" class="form-label">Brush</label>
-        <input v-model="brushSize" @change="updateBrushSize" type="range" class="form-range" min="1" max="10" id="brushSize"/>
+  <div class="d-flex justify-content-center">
+    <div>
+      <div class="container" style="margin-top: 20px; margin-bottom: 20px">
+        <div class="row">
+          <div class="d-inline-flex">
+            <div>
+              <div class="card">
+                <label for="brushSize" class="form-label">Brush</label>
+                <input v-model="brushSize" @change="updateBrushSize" type="range" class="form-range" min="1" max="10"
+                       id="brushSize"/>
+              </div>
+              <div class="card">
+                <label for="colorControl" class="form-label">Color</label>
+                <input v-model="color" @change="updateColor" type="color" class="form-control form-control-color"
+                       id="colorControl">
+              </div>
+            </div>
+            <div ref="canvasParent" @mousedown="beginDrawing" @mousemove="keepDrawing"
+                 @mouseup="stopDrawing">
+              <canvas ref="imageCanvas" id="imageCanvas" width="600" height="100" style="position: relative; top: 50%; transform: translateY(-50%)"></canvas>
+            </div>
+            <div style="height: 100%">
+              <button @click="addPost" type="submit" class="btn btn-primary" style="height: 100%; margin-left: 3px">
+                Post
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
-
-      <div class="card">
-        <label for="colorControl" class="form-label">Color</label>
-        <input v-model="color" @change="updateColor" type="color" class="form-control form-control-color" id="colorControl">
-      </div>
-
-      <button @click="addPost" type="submit" class="btn btn-primary button-inline">
-        Post
-      </button>
-
-    </div>
-    <div class="image-wrap" ref="canvasParent" @mousedown="beginDrawing" @mousemove="keepDrawing" @mouseup="stopDrawing">
-      <canvas ref="imageCanvas" id="imageCanvas" width="600" height="100"></canvas>
     </div>
   </div>
 </template>

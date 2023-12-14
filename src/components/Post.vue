@@ -7,7 +7,7 @@
             <a href="#" @click="navigateToOtherProfileView(post.userId)">{{ post.username }}</a>
           </div>
           <div class="card-body">
-            <canvas v-if="post.userAvatarImageData === ''" ref="imageCanvas" width="100" height="100" class="card-img"></canvas>
+            <img v-if="post.userAvatarImageData === ''" src="../assets/images/avatar-not-found.png" class="card-img"/>
             <img v-else :src="post.userAvatarImageData" class="card-img">
           </div>
         </div>
@@ -35,11 +35,6 @@ export default {
   props: {
     post: {},
     isAdmin: false
-  },
-  data() {
-    return {
-      canvas: null,
-    }
   },
   methods: {
     navigateToOtherProfileView(userId) {
