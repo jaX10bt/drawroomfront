@@ -11,7 +11,7 @@
             <img :src="post.userAvatarImageData" class="card-img" style="max-height: 100px">
           </div>
         </div>
-        <div class="card">
+        <div class="card text-end">
           <div class="card-title">
             {{ post.timestamp }}
           </div>

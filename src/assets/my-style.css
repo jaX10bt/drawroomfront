@@ -32,7 +32,11 @@ nav a.router-link-exact-active {
 
 .container {
     border: 1px solid black;
-    padding: 0;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    padding: 3px;
+    margin: 2px;
 }
 
 .row {
@@ -71,9 +75,9 @@ nav a.router-link-exact-active {
 }
 
 .card {
-    -webkit-border-radius: 0;
-    -moz-border-radius: 0;
-    border-radius: 0;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
     background: transparent;
     margin: 2px;
 }
@@ -92,8 +96,9 @@ nav a.router-link-exact-active {
 .card-title {
     /*position: absolute;*/
     top: 0;
-    padding: 0px;
-    margin: 0px;
+    margin: 0;
+    padding-left: 5px;
+    padding-right: 5px;
 }
 
 .pagination {
@@ -110,7 +115,9 @@ nav a.router-link-exact-active {
 }
 
 .form-label {
+    display: flex;
     margin: 0;
+    padding-left: 5px;
     background-color: yellow;
     text-align: start;
 }
@@ -119,6 +126,12 @@ nav a.router-link-exact-active {
     -webkit-border-radius: 0;
     -moz-border-radius: 0;
     border-radius: 0;
+}
+
+.form-control-color {
+    width: 100%;
+    height: 20px;
+    padding: 0;
 }
 
 .form-range {

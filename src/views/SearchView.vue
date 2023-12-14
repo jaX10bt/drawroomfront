@@ -1,21 +1,14 @@
 <template>
-  <div>
+  <div class="d-flex justify-content-center">
     <div class="container text-center">
       <div class="row justify-content-center">
-        <div class="col col-4">
+        <div class="col col-6">
           <h1>{{ headerTitle }}</h1>
         </div>
       </div>
-      <div>
-        <div>
-          <DynamicUsersList/>
-        </div>
-
-      </div>
+      <DynamicUsersList/>
     </div>
   </div>
-
-
 </template>
 
 <script>

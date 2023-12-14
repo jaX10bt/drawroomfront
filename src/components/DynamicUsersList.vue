@@ -1,5 +1,4 @@
 <template>
-  <div>
     <div class="row justify-content-center">
       <div class="col col-4">
         <input v-model="searchText" @input="searchUsers" @keyup.enter="submitSearch" placeholder="Search users..."/>
@@ -9,7 +8,6 @@
           </li>
         </ul>
       </div>
-    </div>
   </div>
 </template>
 
