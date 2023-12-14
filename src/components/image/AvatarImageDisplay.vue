@@ -11,13 +11,5 @@ export default {
   props: {
     imageDataBase64: String
   },
-  data() {
-    return {
-      canvas: null
-    }
-  },
-  mounted() {
-    this.canvas = this.$refs.imageCanvas.getContext('2d');
-  }
 }
 </script>
