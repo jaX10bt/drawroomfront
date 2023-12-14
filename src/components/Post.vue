@@ -5,7 +5,8 @@
       <div class="d-flex">
         <div class="card">
           <div class="card-title">
-            {{ post.username }}
+<!--            {{ post.username }}-->
+            <a href="#" @click="navigateToOtherProfileView(post.userId)">{{ post.username }}</a>
           </div>
           <div class="card-body">
             <img :src="post.userAvatarImageData" class="card-img" style="max-height: 100px">
@@ -24,6 +25,8 @@
   </div>
 </template>
 <script>
+import router from "@/router";
+
 export default {
   name: 'Post',
   props: {
@@ -36,6 +39,11 @@ export default {
       timestamp: '',
       likeCount: 0
     }
+  },
+  methods: {
+    navigateToOtherProfileView(userId) {
+      router.push({name: 'otherProfileRoute', query: {userId: userId}});
+    },
   }
 }
 </script>
