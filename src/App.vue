@@ -1,7 +1,7 @@
 <template>
   <LogoutModal ref="logoutModalRef" @event-execute-logout="executeLogOut"/>
-  <nav class="navbar navbar-expand-md justify-content-center">
-    <template v-if="isLoggedIn">
+  <template v-if="isLoggedIn">
+    <nav class="navbar navbar-expand-md justify-content-center">
       <div class="container-fluid justify-content-center">
         <a class="home-button" href="#" @click="navigateToHomeView">Home</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggler"
@@ -15,8 +15,8 @@
         </div>
         <a class="logout-button" href="#" @click="handleLogOut">Log Out</a>
       </div>
-    </template>
-  </nav>
+    </nav>
+  </template>
   <router-view @event-update-nav-menu="updateNavMenu"/>
 </template>
 

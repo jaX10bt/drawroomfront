@@ -3,7 +3,6 @@
     <div class="modal-dialog translate-middle-x" @click.stop>
       <div class="modal-content" style="border: thistle 2px solid;">
         <div class="modal-header border-0">
-          <!--                    <h1 class="modal-title fs-5" id="exampleModalLabel">-->
           <h2 class="modal-title w-100 text-center" id="exampleModalLabel">
             <slot name="header">
               Default title

@@ -1,36 +1,16 @@
 <template>
   <DeleteUserModal ref="deleteUserModalRef" @event-user-deleted="updateActiveUsersList" :user="user"/>
-
-
-<!--  <div class="d-flex justify-content-center" style="padding: 20px">-->
-<!--    <div class="d-flex">-->
-<!--      <div class="container text-center">-->
-<!--        <div class="row justify-content-center">-->
-<!--          <h1>-->
-<!--            TEREKEST!-->
-<!--          </h1>-->
-<!--        </div>-->
-<!--        <div class="container">-->
-<!--          <RandomPost></RandomPost>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--  </div>-->
-
-
   <div class="d-flex justify-content-center" style="padding: 20px">
-
     <div class="d-flex">
       <div class="container text-center">
-        <div class="row justify-content-center">
-          <div class="col col-6">
+        <div class="row justify-content-center m-3">
+          <div class="col">
             <h2>{{ headerTitle }}</h2>
           </div>
         </div>
         <DynamicUsersList ref="dynamicUsersListRef" @event-open-delete-modal="handleOpenDeleteUserModal" :isAdmin="isAdmin"/>
       </div>
     </div>
-
   </div>
 </template>
 

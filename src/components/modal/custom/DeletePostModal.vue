@@ -4,13 +4,12 @@
       <h1>Delete post?</h1>
     </template>
     <template #body>
-      <p>Are you sure you want to delete this {{post.username}} post?</p>
+      <p>Are you sure you want to delete this post from {{ post.username }}?</p>
     </template>
     <template #footer>
       <button @click="deletePost" type="button" class="btn btn-secondary">Yes</button>
     </template>
   </Modal>
-
 </template>
 
 <script>
@@ -23,22 +22,20 @@ export default {
   props: {
     post: {}
   },
-
   methods: {
     deletePost() {
-        this.$http.delete("/post", {
-              params: {
-                postId: this.post.postId,
-              }
+      this.$http.delete("/post", {
+            params: {
+              postId: this.post.postId,
             }
-        ).then(response => {
-          this.$emit("event-post-deleted")
-          this.$refs.modalRef.closeModal()
-        }).catch(error => {
-          router.push({name:'errorRoute'})
-        })
-      }
-
+          }
+      ).then(response => {
+        this.$emit("event-post-deleted")
+        this.$refs.modalRef.closeModal()
+      }).catch(error => {
+        router.push({name: 'errorRoute'})
+      })
+    }
   }
 }
 </script>

@@ -1,36 +1,34 @@
 <template>
-
   <ErrorAlert :error-message="errorMessage"/>
-  <div class="container text-center position-fixed start-50 top-50 translate-middle">
-    <div class="row justify-content-center">
-      <div class="col col-3">
-
-        <div class="form-floating mb-3">
-          <input v-model="username" type="text" class="form-control" id="floatingInput">
-          <label for="floatingInput">Choose a username</label>
+  <div class="d-flex justify-content-center" style="padding: 100px">
+    <div class="d-flex">
+      <div class="container text-center">
+        <div class="row justify-content-center">
+          <div class="col">
+            <div class="form-floating mb-3">
+              <input v-model="username" type="text" class="form-control" id="floatingInput">
+              <label for="floatingInput">Choose a username</label>
+            </div>
+            <div class="form-floating mb-3">
+              <input v-model="password" type="password" class="form-control" id="floatingPassword">
+              <label for="floatingPassword">Choose a password</label>
+            </div>
+            <div class="form-floating mb-3">
+              <input v-model="passwordVerify" type="password" class="form-control" id="floatingPassword">
+              <label for="floatingPassword">Verify password</label>
+            </div>
+            <div class="d-flex justify-content-between">
+              <button type="button" @click="$router.go(-1)" class="btn btn-secondary mt-3">Go back</button>
+              <button @click="addNewUser" type="submit" class="btn btn-primary mt-3">Register</button>
+            </div>
+          </div>
         </div>
-        <div class="form-floating mb-3">
-          <input v-model="password" type="password" class="form-control" id="floatingPassword">
-          <label for="floatingPassword">Choose a password</label>
-        </div>
-        <div class="form-floating mb-3">
-          <input v-model="passwordVerify" type="password" class="form-control" id="floatingPassword">
-          <label for="floatingPassword">Verify password</label>
-        </div>
-        <div class="d-flex justify-content-between">
-          <button type="button" @click="$router.go(-1)" class="btn btn-secondary mt-3">Go back</button>
-          <button @click="addNewUser" type="submit" class="btn btn-primary mt-3">Register</button>
-        </div>
-
       </div>
-
     </div>
   </div>
-
 </template>
 
 <script>
-
 import ErrorAlert from "@/components/ErrorAlert.vue";
 import router from "@/router";
 
@@ -98,9 +96,6 @@ export default {
     navigateToLoginView() {
       router.push({name: 'loginRoute'})
     },
-
   }
-
 }
-
 </script>

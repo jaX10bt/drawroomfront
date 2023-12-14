@@ -1,23 +1,23 @@
 <template>
-  <div class="login">
-    <div class="row justify-content-center">
-      <div class="col col-3">
-        <ErrorAlert :error-message="errorMessage"/>
-      </div>
-    </div>
-    <div class="d-flex justify-content-center">
-      <img src="../assets/images/ahvike-08.png" width="200"/>
-    </div>
-    <div class="container text-center position-fixed start-50 top-50 translate-middle" @keydown.enter="login">
-      <div class="row justify-content-center">
-        <div class="col col-3">
-          <div class="input-group mb-3">
-            <input v-model="username" type="text" class="form-control" PLACEHOLDER="Username" aria-label="Username" aria-describedby="basic-addon1">
+  <ErrorAlert :error-message="errorMessage" class="position-fixed start-50 top-50 translate-middle"/>
+  <div class="d-flex justify-content-center" style="padding: 100px">
+    <!--    <div class="d-flex">-->
+    <!--      <img src="../assets/images/ahvike-08.png" width="200px"/>-->
+    <!--    </div>-->
+    <div class="d-flex">
+      <div class="container text-center" @keydown.enter="login">
+        <div class="row justify-content-center">
+          <div class="col">
+            <div class="input-group mb-3">
+              <input v-model="username" type="text" class="form-control" PLACEHOLDER="Username" aria-label="Username"
+                     aria-describedby="basic-addon1">
+            </div>
+            <div class="input-group mb-3">
+              <input v-model="password" type="password" class="form-control" PLACEHOLDER="Password"
+                     aria-label="Password" aria-describedby="basic-addon1">
+            </div>
+            <button @click="login" type="submit" class="btn btn-primary">Log in</button>
           </div>
-          <div class="input-group mb-3">
-            <input v-model="password" type="password" class="form-control" PLACEHOLDER="Password" aria-label="Password" aria-describedby="basic-addon1">
-          </div>
-          <button @click="login" type="submit" class="btn btn-primary">Log in</button>
         </div>
       </div>
     </div>
@@ -45,7 +45,7 @@ export default {
         roleName: ''
       },
       errorResponse: {
-        message:'',
+        message: '',
         errorCode: 0
       }
     }
@@ -85,18 +85,18 @@ export default {
       router.push({name: 'homeRoute'})
     },
 
-    handleUnSuccessfulLogin (error) {
+    handleUnSuccessfulLogin(error) {
       this.errorResponse = error.response.data
       const httpStatusCode = error.response.status
       if (httpStatusCode === 403 && this.errorResponse.errorCode === 111) {
         this.errorMessage = this.errorResponse.message
       } else {
-        router.push ({name: 'errorRoute'})
+        router.push({name: 'errorRoute'})
       }
     },
 
     handleRequiredFieldsAlert() {
-      this.errorMessage = 'Fill all fields!'
+      this.errorMessage = 'Please fill all fields!'
       setTimeout(this.resetErrorMessage, 4000)
     },
 
@@ -118,6 +118,5 @@ export default {
   mounted() {
     this.checkIfLoggedIn();
   }
-
 }
 </script>

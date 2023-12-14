@@ -19,8 +19,8 @@
             <img :src="post.postImageData" class="card-img">
           </div>
           <div>
-            <font-awesome-icon v-if="isAdmin" @click="handleDeletePostModal(post)" class="ms-3 cursor-pointer" :icon="['fas', 'trash']"
-                               size="lg"/>
+            <font-awesome-icon v-if="isAdmin" @click="handleDeletePostModal(post)"
+                               class="ms-3 cursor-pointer button-inline-bottom" :icon="['fas', 'trash']" size="lg"/>
           </div>
         </div>
       </div>
