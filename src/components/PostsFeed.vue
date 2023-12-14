@@ -2,7 +2,7 @@
 
   <div>
     <div v-for="post in postsFeed.posts">
-        <Post ref="postRef" @event-open-delete-modal="handleOpenDeletePostModal" :post="post" :key="post.postId"/>
+        <Post ref="postRef" @event-open-delete-modal="handleOpenDeletePostModal" :isAdmin="isAdmin" :post="post" :key="post.postId"/>
     </div>
     <Pagination :totalPages="postsFeed.totalPages" :pageNumber="pageNumber" @event-emit-new-page-number="setPageNumber"/>
   </div>
@@ -16,8 +16,10 @@ import {post} from "axios";
 export default {
   name: 'PostsFeed',
   components: {Pagination, Post},
+
   data() {
     return {
+      isAdmin: false,
       pageNumber: 1,
       postsPerPage: 6,
       postsFeed: {
@@ -64,9 +66,17 @@ export default {
     handleOpenDeletePostModal(post) {
       this.$emit("event-open-delete-modal", post)
     },
+
+    getAndSetIsAdmin() {
+      const roleName = sessionStorage.getItem('roleName')
+      this.isAdmin = roleName === 'admin'
+    },
   },
   beforeMount() {
     this.getPosts()
+  },
+  mounted() {
+    this.getAndSetIsAdmin()
   }
 }
 </script>
