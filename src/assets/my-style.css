@@ -193,7 +193,7 @@ img {
     display: flex;
     margin: 0;
     padding-left: 5px;
-    background-color: deeppink;
+    background-color: greenyellow;
     text-align: start;
 }
 
@@ -214,13 +214,13 @@ img {
 }
 
 .form-range::-webkit-slider-runnable-track {
-    border-radius: 0;
-    background-color: pink;
+    border-radius: 2px;
+    background-color: darkseagreen;
 }
 
 .form-range::-webkit-slider-thumb {
-    border-radius: 0;
-    background-color: deeppink;
+    border-radius: 3px;
+    background-color: greenyellow;
 }
 
 #imageCanvas {
