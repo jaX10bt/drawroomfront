@@ -4,7 +4,7 @@
       <h1>Delete post?</h1>
     </template>
     <template #body>
-      <p>Are you sure you want to delete this {{post.username}} post?</p>
+      <p>Are you sure you want to delete this post by {{post.username}}?</p>
     </template>
     <template #footer>
       <button @click="deletePost" type="button" class="btn btn-secondary">Yes</button>
