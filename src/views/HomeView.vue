@@ -1,12 +1,14 @@
 <template>
-  <div class="home">
-    <div>
-      <h1>
-      TEREKEST!
-    </h1>
-    </div>
-    <div>
-      <RandomPost></RandomPost>
+  <div class="d-flex justify-content-center">
+    <div class="container text-center">
+      <div class="row justify-content-center">
+        <h1>
+          TEREKEST!
+        </h1>
+      </div>
+      <div class="row justify-content-center">
+        <RandomPost></RandomPost>
+      </div>
     </div>
   </div>
 </template>
