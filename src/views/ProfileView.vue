@@ -12,6 +12,7 @@
       </div>
     </div>
 
+
     <div v-else class="d-flex image-wrap">
       <div class="container">
         <AvatarImageDisplay :image-data-base64="profileInfo.avatarData"/>
