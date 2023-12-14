@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div v-if="imageDataBase64 === ''" class="container" style="width: 900px; height: 500px">
+    <div v-if="imageDataBase64 === ''" class="image-wrap" style="width: 900px; height: 500px">
 <!--      <p>-->
 <!--        Cover image does not yet exist.-->
 <!--      </p>-->

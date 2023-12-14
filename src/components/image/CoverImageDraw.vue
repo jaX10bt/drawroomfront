@@ -7,10 +7,14 @@
         <p>Draw your own cover image!</p>
       </canvas>
     </div>
-    <div class="col col-sm-2">
-      <label for="brushSize" class="form-label">Brush size</label>
+    <div class="card limit-width">
+      <label for="brushSize" class="form-label">Brush</label>
       <input v-model="brushSize" @change="updateBrushSize" type="range" class="form-range" min="1" max="10" id="brushSize"/>
-      <input v-model="color" @change="updateColor" type="color" class="form-control form-control-color">
+    </div>
+
+    <div class="card limit-width">
+      <label for="colorControl" class="form-label">Color</label>
+      <input v-model="color" @change="updateColor" type="color" class="form-control form-control-color" id="colorControl">
     </div>
   </div>
 </template>

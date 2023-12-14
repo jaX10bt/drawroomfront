@@ -5,7 +5,6 @@
       <div class="d-flex">
         <div class="card">
           <div class="card-title">
-<!--            {{ post.username }}-->
             <a href="#" @click="navigateToOtherProfileView(post.userId)">{{ post.username }}</a>
           </div>
           <div class="card-body">

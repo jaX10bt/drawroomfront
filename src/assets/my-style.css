@@ -26,6 +26,10 @@ nav a.router-link-exact-active {
     color: #42b983;
 }
 
+.limit-width {
+    max-width: 200px;
+}
+
 .cursor-pointer {
     cursor: pointer;
 }
@@ -61,6 +65,13 @@ nav a.router-link-exact-active {
     display: inline-block;
     position: relative;
     border: 1px solid green;
+}
+
+.image-placeholder {
+    width: 200px;
+    height: 200px;
+    max-width: 100%;
+    border: 1px solid blueviolet;
 }
 
 .button-inline {

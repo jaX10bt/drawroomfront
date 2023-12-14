@@ -35,15 +35,12 @@ export default {
       sessionStorage.clear()
       this.updateNavMenu()
       router.push({name: 'loginRoute'})
-
     },
   },
-
   mounted() {
     this.updateNavMenu()
   }
 }
-
 </script>
 
 <style>

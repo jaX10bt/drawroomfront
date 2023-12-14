@@ -31,7 +31,6 @@ export default {
       },
     }
   },
-
   methods: {
     handleOpenDeleteUserModal(user) {
       this.user = user

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div v-if="imageDataBase64 === ''" class="container container-fluid" style="width: 200px; height: 200px">
+    <div v-if="imageDataBase64 === ''" class="image-placeholder" style="width: 200px; height: 200px">
       <!--      <p>-->
       <!--        Avatar image does not yet exist.-->
       <!--      </p>-->
