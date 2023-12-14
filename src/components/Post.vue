@@ -1,5 +1,4 @@
 <template>
-
   <div class="container">
     <div class="row d-inline-flex">
       <div class="d-flex">
