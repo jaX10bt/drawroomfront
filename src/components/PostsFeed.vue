@@ -10,7 +10,6 @@
 <script>
 import Post from "@/components/Post.vue";
 import Pagination from "@/components/Pagination.vue";
-import {post} from "axios";
 
 export default {
   name: 'PostsFeed',
