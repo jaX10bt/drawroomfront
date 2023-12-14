@@ -2,7 +2,7 @@
 
   <div>
     <PostsFeed ref="postsFeedRef" class="d-flex flex-column-reverse align-items-center"/>
-    <PostImageDraw @event-update-feed="updateFeed" class="d-flex"/>
+    <PostImageDraw @event-update-feed="updateFeed" class="d-flex justify-content-center" style="padding: 20px"/>
   </div>
 
 </template>
@@ -18,6 +18,7 @@ export default {
     return {
       userId: Number(sessionStorage.getItem('userId')),
       roleName: sessionStorage.getItem('roleName'),
+      isDrawing: false
     }
   },
   methods: {

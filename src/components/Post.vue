@@ -1,16 +1,27 @@
 <template>
-    <div class="card">
-      <div class="card-header">
-        {{ post.username }}
+
+  <div class="container">
+    <div class="row d-inline-flex">
+      <div class="d-flex">
+        <div class="card">
+          <div class="card-title">
+            {{ post.username }}
+          </div>
+          <div class="card-body">
+            <img :src="post.userAvatarImageData" class="card-img" style="max-height: 100px">
+          </div>
+        </div>
+        <div class="card text-end">
+          <div class="card-title">
+            {{ post.timestamp }}
+          </div>
+          <div class="card-body">
+            <img :src="post.postImageData" class="card-img">
+          </div>
+        </div>
       </div>
-      <div class="card-body d-inline-flex">
-        <img :src="post.userAvatarImageData" class="card-img" style="height: 100px">
-        <img :src="post.postImageData" class="card-img">
-      </div>
-      <!--    <div class="card-body">-->
-      <!--      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>-->
-      <!--    </div>-->
     </div>
+  </div>
 </template>
 <script>
 export default {

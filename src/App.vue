@@ -1,11 +1,11 @@
 <template>
-  <nav>
+  <nav class="navbar navbar-expand-sm justify-content-center">
     <template v-if="isLoggedIn">
 
       <router-link to="/profile">My Profile</router-link>
       <router-link to="/forum">DrawRoom</router-link>
       <router-link to="/users/active">Find Users</router-link>
-      <a href="#" @click="handleLogOut">LOGI VÄLJA</a>
+      <a class="logout-button" href="#" @click="handleLogOut">LOGI VÄLJA</a>
 
     </template>
   </nav>
@@ -47,33 +47,5 @@ export default {
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  text-align: center;
-  background-color: #c9c9c9;
-  min-height: 100vh;
-}
 
-h3 {
-  margin: 30px;
-}
-
-nav {
-  padding: 30px;
-}
-
-nav a {
-  font-weight: bold;
-  color: #2c3e50;
-  text-decoration: none;
-  padding: 30px;
-}
-
-nav a.router-link-exact-active {
-  color: #42b983;
-}
 </style>

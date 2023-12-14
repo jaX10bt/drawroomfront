@@ -1,22 +1,15 @@
 <template>
   <DeleteUserModal ref="deleteUserModalRef" @event-user-deleted="updateActiveUsersList" :user="user"/>
-  <div>
+  <div class="d-flex justify-content-center">
     <div class="container text-center">
       <div class="row justify-content-center">
-        <div class="col col-4">
+        <div class="col col-6">
           <h1>{{ headerTitle }}</h1>
         </div>
       </div>
-      <div>
-        <div>
-          <DynamicUsersList ref="dynamicUsersListRef" @event-open-delete-modal="handleOpenDeleteUserModal" :isAdmin="isAdmin"/>
-        </div>
-
-      </div>
+      <DynamicUsersList ref="dynamicUsersListRef" @event-open-delete-modal="handleOpenDeleteUserModal" :isAdmin="isAdmin"/>
     </div>
   </div>
-
-
 </template>
 
 <script>

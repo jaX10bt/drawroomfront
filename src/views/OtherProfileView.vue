@@ -1,14 +1,18 @@
 <template>
-<div>
-  <div>
-<h1>{{userProfileInfo.username}}</h1>
-  </div>
-  <div class="d-inline-flex">
-    <AvatarImageDisplay :image-data-base64="userProfileInfo.avatarData"/>
-  </div>
-  <div class="d-flex image-wrap">
-    <CoverImageDisplay :image-data-base64="userProfileInfo.coverData"/>
-  </div>
+  <div class="d-flex justify-content-center">
+    <div class="d-flex">
+      <div class="container">
+        <AvatarImageDisplay :image-data-base64="userProfileInfo.avatarData"/>
+        <div>
+          <h3>{{userProfileInfo.username}}</h3>
+        </div>
+      </div>
+    </div>
+    <div class="d-flex">
+      <div class="container">
+        <CoverImageDisplay :image-data-base64="userProfileInfo.coverData"/>
+      </div>
+    </div>
   </div>
 </template>
 

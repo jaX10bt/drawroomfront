@@ -1,34 +1,37 @@
 <template>
-
   <!--  <div class="flex-container">-->
-  <div class="d-inline-flex">
-
+  <div class="d-flex justify-content-center">
     <div v-if="isEditAvatar" class="d-flex image-wrap">
-      <AvatarImageDraw :image-data-base64="profileInfo.avatarData" @event-emit-image-data="setAvatarImage"/>
-      <button v-if="isProfileOwner" @click="updateAvatarImage" type="submit" class="btn btn-primary button-inline">
-        Save avatar
-      </button>
+      <div class="container">
+        <AvatarImageDraw :image-data-base64="profileInfo.avatarData" @event-emit-image-data="setAvatarImage"/>
+        <button v-if="isProfileOwner" @click="updateAvatarImage" type="submit" class="btn btn-primary button-inline">
+          Save avatar
+        </button>
+      </div>
     </div>
     <div v-else class="d-flex image-wrap">
-      <AvatarImageDisplay :image-data-base64="profileInfo.avatarData"/>
-      <button v-if="isProfileOwner && !isEditCover" @click="editAvatarImage" type="submit" class="btn btn-primary button-inline">Edit avatar</button>
+      <div class="container">
+        <AvatarImageDisplay :image-data-base64="profileInfo.avatarData"/>
+        <button v-if="isProfileOwner && !isEditCover" @click="editAvatarImage" type="submit" class="btn btn-primary button-inline">Edit avatar</button>
+      </div>
     </div>
-
     <div v-if="isEditCover" class="d-flex image-wrap">
-      <CoverImageDraw :image-data-base64="profileInfo.coverData" @event-emit-image-data="setCoverImage"/>
-      <button v-if="isProfileOwner" @click="updateCoverImage" type="submit" class="btn btn-primary button-inline">
-        Save cover
-      </button>
+      <div class="container">
+        <CoverImageDraw :image-data-base64="profileInfo.coverData" @event-emit-image-data="setCoverImage"/>
+        <button v-if="isProfileOwner" @click="updateCoverImage" type="submit" class="btn btn-primary button-inline">
+          Save cover
+        </button>
+      </div>
     </div>
     <div v-else class="d-flex image-wrap">
-      <CoverImageDisplay :image-data-base64="profileInfo.coverData"/>
-      <button v-if="isProfileOwner && !isEditAvatar" @click="editCoverImage" type="submit" class="btn btn-primary button-inline">Edit
-        cover
-      </button>
+      <div class="container">
+        <CoverImageDisplay :image-data-base64="profileInfo.coverData"/>
+        <button v-if="isProfileOwner && !isEditAvatar" @click="editCoverImage" type="submit" class="btn btn-primary button-inline">Edit
+          cover
+        </button>
+      </div>
     </div>
-
   </div>
-
 </template>
 
 <script>

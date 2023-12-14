@@ -1,20 +1,24 @@
 <template>
-  <div class="d-inline-flex">
-    <div class="image-wrap" ref="canvasParent" @mousedown="beginDrawing" @mousemove="keepDrawing" @mouseup="stopDrawing">
-      <canvas ref="imageCanvas" id="imageCanvas" width="600" height="100"></canvas>
-    </div>
+  <div>
     <div class="image-wrap">
-      <div>
-        <label for="brushSize" class="form-label">Brush size</label>
+
+      <div class="card">
+        <label for="brushSize" class="form-label">Brush</label>
         <input v-model="brushSize" @change="updateBrushSize" type="range" class="form-range" min="1" max="10" id="brushSize"/>
       </div>
-      <div>
+
+      <div class="card">
         <label for="colorControl" class="form-label">Color</label>
         <input v-model="color" @change="updateColor" type="color" class="form-control form-control-color" id="colorControl">
       </div>
+
       <button @click="addPost" type="submit" class="btn btn-primary button-inline">
         Post
       </button>
+
+    </div>
+    <div class="image-wrap" ref="canvasParent" @mousedown="beginDrawing" @mousemove="keepDrawing" @mouseup="stopDrawing">
+      <canvas ref="imageCanvas" id="imageCanvas" width="600" height="100"></canvas>
     </div>
   </div>
 </template>
