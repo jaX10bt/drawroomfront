@@ -8,7 +8,8 @@
             <a href="#" @click="navigateToOtherProfileView(post.userId)">{{ post.username }}</a>
           </div>
           <div class="card-body">
-            <img :src="post.userAvatarImageData" class="card-img" style="max-height: 100px">
+            <canvas v-if="post.userAvatarImageData === ''" ref="imageCanvas" width="100" height="100" class="card-img"></canvas>
+            <img v-else :src="post.userAvatarImageData" class="card-img">
           </div>
         </div>
         <div class="card text-end">
@@ -25,9 +26,11 @@
 </template>
 <script>
 import router from "@/router";
+import AvatarImageDisplay from "@/components/image/AvatarImageDisplay.vue";
 
 export default {
   name: 'Post',
+  components: {AvatarImageDisplay},
   props: {
     post: {
       postId: 0,
@@ -39,10 +42,18 @@ export default {
       likeCount: 0
     }
   },
+  data() {
+    return {
+      canvas: null,
+    }
+  },
   methods: {
     navigateToOtherProfileView(userId) {
       router.push({name: 'otherProfileRoute', query: {userId: userId}});
     },
+  },
+  mounted() {
+
   }
 }
 </script>

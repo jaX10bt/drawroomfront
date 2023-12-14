@@ -1,10 +1,6 @@
 <template>
   <div>
-    <div v-if="imageDataBase64 === ''" class="image-placeholder" style="width: 200px; height: 200px">
-      <!--      <p>-->
-      <!--        Avatar image does not yet exist.-->
-      <!--      </p>-->
-    </div>
+    <canvas v-if="imageDataBase64 === ''" ref="imageCanvas" id="imageCanvas" width="200" height="200"></canvas>
     <img v-else :src="imageDataBase64">
   </div>
 </template>
@@ -14,6 +10,14 @@ export default {
   name: 'AvatarImageDisplay',
   props: {
     imageDataBase64: String
+  },
+  data() {
+    return {
+      canvas: null
+    }
+  },
+  mounted() {
+    this.canvas = this.$refs.imageCanvas.getContext('2d');
   }
 }
 </script>
