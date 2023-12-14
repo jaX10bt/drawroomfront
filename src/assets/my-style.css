@@ -1,9 +1,14 @@
+@font-face {
+    font-family: FK Raster Roman Compact;
+    src: url("../assets/fonts/FKRasterRomanCompact-Smooth.ttf");
+}
+
 #app {
-    font-family: Avenir, Helvetica, Arial, sans-serif;
+    font-family: FK Raster Roman Compact, serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    color: #2c3e50;
-    background-color: #c9c9c9;
+    color: #222323;
+    background-color: #7d48b5;
     min-height: 100vh;
 }
 
@@ -12,18 +17,53 @@ h3 {
 }
 
 nav {
-    padding: 30px;
+    /*padding: 40px;*/
+    font-size: 1.5em;
+    background-color: #f0f6f0;
+    /*margin-bottom: 20px;*/
 }
 
 nav a {
-    font-weight: bold;
-    color: #2c3e50;
+    /*font-weight: bold;*/
+    color: #222323;
     text-decoration: none;
-    padding: 30px;
+    padding: 20px 40px 20px 40px;
 }
 
 nav a.router-link-exact-active {
-    color: #42b983;
+    color: #7d48b5;
+}
+
+canvas {
+    max-width: 100%;
+    cursor: crosshair;
+    padding: 0;
+    margin: 0;
+    border: 1px solid black;
+    background-color: #f0f6f0;
+}
+
+img {
+    max-width: 100%;
+    /*border: 1px solid black;*/
+}
+
+.navbar-toggler {
+    margin: 20px;
+}
+
+.logout-button {
+    padding: 5px;
+    position: relative;
+    top: 0;
+    right: 0;
+}
+
+.home-button {
+    padding: 5px;
+    position: relative;
+    top: 0;
+    left: 0;
 }
 
 .limit-width {
@@ -41,55 +81,14 @@ nav a.router-link-exact-active {
     border-radius: 5px;
     padding: 3px;
     margin: 2px;
-}
-
-.row {
-    --bs-gutter-x: 0;
-}
-
-.btn {
-    -webkit-border-radius: 0;
-    -moz-border-radius: 0;
-    border-radius: 0;
-    --bs-btn-padding-x: 5px;
-    --bs-btn-padding-y: 1px;
-}
-
-.alert-warning {
-    -webkit-border-radius: 0;
-    -moz-border-radius: 0;
-    border-radius: 0;
-}
-
-.image-wrap {
-    display: inline-block;
-    position: relative;
-    border: 1px solid green;
-}
-
-.image-placeholder {
-    width: 200px;
-    height: 200px;
-    max-width: 100%;
-    border: 1px solid blueviolet;
-}
-
-.button-inline {
-    position: absolute;
-    top: 0;
-    right: 0;
-}
-
-.post-column {
-    flex-direction: column;
-    max-width: 600px;
+    background-color: #f0f6f0;
 }
 
 .card {
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
     border-radius: 3px;
-    background: transparent;
+    background-color: #f0f6f0;
     margin: 2px;
 }
 
@@ -114,24 +113,72 @@ nav a.router-link-exact-active {
     padding-right: 5px;
 }
 
-.pagination {
-    margin: 5px;
-    --bs-pagination-padding-x: 1rem;
-    --bs-pagination-padding-y: .1rem;
+.row {
+    --bs-gutter-x: 0;
 }
 
-.logout-button {
-    padding: 5px;
+.row>* {
+    flex-shrink: unset;
+    /*width: auto;*/
+}
+
+.btn {
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    --bs-btn-padding-x: 5px;
+    --bs-btn-padding-y: 1px;
+    background-color: #222323;
+    border: 0;
+}
+
+.alert-warning {
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+}
+
+.image-wrap {
+    display: inline-block;
+    position: relative;
+    /*border: 1px solid green;*/
+}
+
+.image-placeholder {
+    width: 200px;
+    height: 200px;
+    max-width: 100%;
+    /*border: 1px solid blueviolet;*/
+}
+
+.button-inline {
     position: absolute;
     top: 0;
     right: 0;
 }
 
-.home-button {
-    padding: 5px;
-    position: absolute;
-    top: 0;
-    left: 0;
+.post-column {
+    flex-direction: column;
+    max-width: 600px;
+}
+
+.pagination {
+    margin-bottom: 20px;
+    --bs-pagination-padding-x: 1rem;
+    --bs-pagination-padding-y: .1rem;
+    --bs-pagination-color: #f0f6f0;
+    --bs-pagination-border-color: black;
+    --bs-pagination-background: #4e5050;
+    --bs-pagination-active-bg: #222323;
+    --bs-pagination-active-border-color: black;
+    --bs-pagination-hover-color: #f0f6f0;
+    --bs-pagination-hover-bg: #3f4242;
+    --bs-pagination-hover-border-color: black;
+}
+
+.page-link {
+    background-color: #4e5050;
+    /*border: 0;*/
 }
 
 .form-label {
@@ -166,17 +213,6 @@ nav a.router-link-exact-active {
 .form-range::-webkit-slider-thumb {
     border-radius: 0;
     background-color: orangered;
-}
-
-canvas {
-    max-width: 100%;
-    /*cursor: crosshair;*/
-    padding: 0;
-    margin: 0;
-}
-
-img {
-    max-width: 100%;
 }
 
 #imageCanvas {

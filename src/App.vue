@@ -1,14 +1,20 @@
 <template>
   <LogoutModal ref="logoutModalRef" @event-execute-logout="executeLogOut"/>
-  <nav class="navbar navbar-expand-sm justify-content-center">
+  <nav class="navbar navbar-expand-md justify-content-center">
     <template v-if="isLoggedIn">
-      <a class="home-button" href="#">
-        <img src="@/assets/images/ahvike-08.png" width="70" @click="routeToHomeView"/>
-      </a>
-      <router-link to="/profile">My Profile</router-link>
-      <router-link to="/forum">DrawRoom</router-link>
-      <router-link to="/users/active">Find Users</router-link>
-      <a class="logout-button" href="#" @click="handleLogOut">LOGI VÄLJA</a>
+      <div class="container-fluid justify-content-center">
+        <a class="home-button" href="#" @click="navigateToHomeView">Home</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggler"
+                aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-center" id="navbarToggler">
+          <router-link to="/profile">My Profile</router-link>
+          <router-link to="/forum">DrawRoom</router-link>
+          <router-link to="/users/active">Find Users</router-link>
+        </div>
+        <a class="logout-button" href="#" @click="handleLogOut">Log Out</a>
+      </div>
     </template>
   </nav>
   <router-view @event-update-nav-menu="updateNavMenu"/>
@@ -34,7 +40,7 @@ export default {
       this.isAdmin = roleName === 'admin'
     },
 
-    routeToHomeView() {
+    navigateToHomeView() {
       router.push({name: 'homeRoute'})
     },
 

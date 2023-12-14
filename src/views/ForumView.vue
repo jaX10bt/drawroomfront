@@ -1,9 +1,9 @@
 <template>
   <DeletePostModal ref="deletePostModalRef" :post="selectedPost" @event-post-deleted="updateFeed"/>
-  <div>
+  <div style="padding: 20px">
     <PostsFeed ref="postsFeedRef" class="d-flex flex-column-reverse align-items-center"
                @event-open-delete-modal="handleOpenDeletePostModal"/>
-    <PostImageDraw @event-update-feed="updateFeed" class="d-flex justify-content-center" style="padding: 20px"/>
+    <PostImageDraw @event-update-feed="updateFeed"/>
   </div>
 </template>
 
