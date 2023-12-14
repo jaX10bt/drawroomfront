@@ -13,6 +13,9 @@
       <div class="container">
         <AvatarImageDisplay :image-data-base64="profileInfo.avatarData"/>
         <button v-if="isProfileOwner && !isEditCover" @click="editAvatarImage" type="submit" class="btn btn-primary button-inline">Edit avatar</button>
+        <div>
+          <h2>{{ profileInfo.username }}</h2>
+        </div>
       </div>
     </div>
     <div v-if="isEditCover" class="d-flex image-wrap">
@@ -50,7 +53,7 @@ export default {
       isEditAvatar: false,
       userId: Number(sessionStorage.getItem('userId')),
       profileInfo: {
-
+        username: '',
         profileUserId: 0,
         coverData: '',
         avatarData: ''
