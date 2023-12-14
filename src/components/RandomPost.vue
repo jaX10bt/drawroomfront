@@ -1,5 +1,5 @@
 <template>
-  <img :src="PostImage.imageData">
+  <img :src="PostImage.imageData" style="max-height: 100px; max-width: 500px">
 </template>
 
 <script>

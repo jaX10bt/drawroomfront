@@ -6,7 +6,7 @@
           TEREKEST!
         </h1>
       </div>
-      <div class="row justify-content-center">
+      <div class="position-absolute top-50 start-50 translate-middle">
         <RandomPost></RandomPost>
       </div>
     </div>
