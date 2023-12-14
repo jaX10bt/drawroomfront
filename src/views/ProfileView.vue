@@ -1,8 +1,6 @@
 <template>
-
   <!--  <div class="flex-container">-->
   <div class="d-flex justify-content-center">
-
     <div v-if="isEditAvatar" class="d-flex image-wrap">
       <div class="container">
         <AvatarImageDraw :image-data-base64="profileInfo.avatarData" @event-emit-image-data="setAvatarImage"/>
@@ -11,15 +9,12 @@
         </button>
       </div>
     </div>
-
-
     <div v-else class="d-flex image-wrap">
       <div class="container">
         <AvatarImageDisplay :image-data-base64="profileInfo.avatarData"/>
         <button v-if="isProfileOwner && !isEditCover" @click="editAvatarImage" type="submit" class="btn btn-primary button-inline">Edit avatar</button>
       </div>
     </div>
-
     <div v-if="isEditCover" class="d-flex image-wrap">
       <div class="container">
         <CoverImageDraw :image-data-base64="profileInfo.coverData" @event-emit-image-data="setCoverImage"/>
@@ -28,7 +23,6 @@
         </button>
       </div>
     </div>
-
     <div v-else class="d-flex image-wrap">
       <div class="container">
         <CoverImageDisplay :image-data-base64="profileInfo.coverData"/>
@@ -37,9 +31,7 @@
         </button>
       </div>
     </div>
-
   </div>
-
 </template>
 
 <script>
