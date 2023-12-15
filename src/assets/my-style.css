@@ -84,6 +84,16 @@ img {
     background-color: #f0f6f0;
 }
 
+.text-custom-dark {
+    color: #222323;
+    text-decoration: none;
+}
+
+.text-custom-light {
+    color: #f0f6f0;
+    text-decoration: none;
+}
+
 .card {
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
@@ -111,6 +121,8 @@ img {
     margin: 0;
     padding-left: 5px;
     padding-right: 5px;
+    color: #f0f6f0;
+    background-color: #222323;
 }
 
 .row {
@@ -129,7 +141,23 @@ img {
     --bs-btn-padding-x: 5px;
     --bs-btn-padding-y: 1px;
     background-color: #222323;
-    border: 0;
+    border: 1px solid black;
+    --bs-btn-hover-bg: #3f4242;
+    --bs-btn-hover-border-color: black;
+}
+
+.button-inline {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.button-inline-bottom {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    color: #222323;
+    padding: 5px;
 }
 
 .alert-warning {
@@ -149,20 +177,6 @@ img {
     height: 200px;
     max-width: 100%;
     /*border: 1px solid blueviolet;*/
-}
-
-.button-inline {
-    position: absolute;
-    top: 0;
-    right: 0;
-}
-
-.button-inline-bottom {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    color: #222323;
-    padding: 5px;
 }
 
 .post-column {

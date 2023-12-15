@@ -4,10 +4,10 @@
       <div class="d-flex">
         <div class="card">
           <div class="card-title">
-            <a href="#" @click="navigateToOtherProfileView(post.userId)">{{ post.username }}</a>
+            <a href="#" @click="navigateToOtherProfileView(post.userId)" class="text-custom-light">{{ post.username }}</a>
           </div>
           <div class="card-body">
-            <img v-if="post.userAvatarImageData === ''" src="../assets/images/avatar-not-found.png" class="card-img" style="opacity: 0.5"/>
+            <img v-if="post.userAvatarImageData === ''" src="../assets/images/avatar-not-found.png" class="card-img" style="opacity: 0.2"/>
             <img v-else :src="post.userAvatarImageData" class="card-img">
           </div>
         </div>
