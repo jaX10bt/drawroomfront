@@ -7,7 +7,7 @@
             <a href="#" @click="navigateToOtherProfileView(post.userId)">{{ post.username }}</a>
           </div>
           <div class="card-body">
-            <img v-if="post.userAvatarImageData === ''" src="../assets/images/avatar-not-found.png" class="card-img"/>
+            <img v-if="post.userAvatarImageData === ''" src="../assets/images/avatar-not-found.png" class="card-img" style="opacity: 0.5"/>
             <img v-else :src="post.userAvatarImageData" class="card-img">
           </div>
         </div>
