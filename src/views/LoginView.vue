@@ -1,5 +1,5 @@
 <template>
-  <ErrorAlert :error-message="errorMessage" class="position-fixed start-50 top-50 translate-middle"/>
+  <ErrorAlert :error-message="errorMessage" class="position-absolute start-50 mt-5 translate-middle"/>
   <div class="d-flex justify-content-center" style="padding: 100px">
     <!--    <div class="d-flex">-->
     <!--      <img src="../assets/images/ahvike-08.png" width="200px"/>-->

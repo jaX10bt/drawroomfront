@@ -1,7 +1,7 @@
 <template>
   <div v-if="isOpen" class="modal fade show d-block" tabindex="-1" @click="closeModal">
     <div class="modal-dialog translate-middle-x" @click.stop>
-      <div class="modal-content" style="border: thistle 2px solid;">
+      <div class="modal-content" style="border: black 1px solid; background-color: #f0f6f0">
         <div class="modal-header border-0">
           <h2 class="modal-title w-100 text-center" id="exampleModalLabel">
             <slot name="header">

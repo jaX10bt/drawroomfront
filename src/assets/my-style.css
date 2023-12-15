@@ -146,10 +146,26 @@ img {
     --bs-btn-hover-border-color: black;
 }
 
+.btn-close {
+    --bs-btn-close-focus-opacity: 0;
+}
+
+.btn:focus {
+    outline: 0;
+}
+
 .button-inline {
     position: absolute;
     top: 0;
     right: 0;
+}
+
+.button-inline-top {
+    position: absolute;
+    top: 20px;
+    right: 0;
+    color: #222323;
+    padding: 5px;
 }
 
 .button-inline-bottom {
@@ -217,6 +233,15 @@ img {
     border-radius: 0;
 }
 
+.form-control:focus {
+    border-color: #222323;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(179, 255, 201, 0.6);
+}
+
+.form-control:focus {
+    outline: 0;
+}
+
 .form-control-color {
     width: 100%;
     height: 20px;
@@ -250,7 +275,7 @@ img {
 
 /* Kui modaal on nähtav, rakenda järgmised stiilid */
 .modal.fade.show.d-block {
-    background-color: rgba(0, 0, 0, 0.8); /* Tausta värv koos läbipaistvusega */
+    background-color: rgba(34, 35, 35, 0.8); /* Tausta värv koos läbipaistvusega */
     position: fixed; /* Positsiooni tüüp on fikseeritud */
     z-index: 1050; /* Z-indeks määrab modaalakna kihi järjekorra */
     left: 0; /* Vasak paigutus on null */

@@ -1,6 +1,6 @@
 <template>
-  <ErrorAlert :error-message="errorMessage"/>
-  <div class="d-flex justify-content-center" style="padding: 100px">
+  <ErrorAlert :error-message="errorMessage" class="position-absolute start-50 mt-5 translate-middle"/>
+  <div class="d-flex justify-content-center" style="padding-top: 150px">
     <div class="d-flex">
       <div class="container text-center">
         <div class="row justify-content-center">
