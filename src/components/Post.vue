@@ -17,10 +17,10 @@
           </div>
           <div class="card-body">
             <img :src="post.postImageData" class="card-img">
-            <font-awesome-icon class="cursor-pointer button-inline-top" :icon="['fas', 'heart']" size="lg"/>
+            <font-awesome-icon class="cursor-pointer button-inline-top" :icon="['fas', 'heart']" size="md"/>
           </div>
           <div>
-            <font-awesome-icon v-if="isAdmin" class="cursor-pointer button-inline-bottom" @click="handleDeletePostModal(post)" :icon="['fas', 'trash']" size="lg"/>
+            <font-awesome-icon v-if="isAdmin" class="cursor-pointer button-inline-bottom" @click="handleDeletePostModal(post)" :icon="['fas', 'trash']" size="md"/>
           </div>
         </div>
       </div>

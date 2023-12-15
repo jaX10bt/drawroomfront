@@ -7,7 +7,7 @@
           <a href="#" @click="navigateToOtherProfileView(user.userId)" class="m-2 text-custom-dark">{{ user.username }}</a>
         </div>
         <div class="col text-end">
-          <font-awesome-icon v-if="isAdmin" @click="handleDeleteUserModal(user)" class="m-2 cursor-pointer" :icon="['fas', 'trash']" size="lg"/>
+          <font-awesome-icon v-if="isAdmin" @click="handleDeleteUserModal(user)" class="m-2 cursor-pointer" :icon="['fas', 'trash']" size="md"/>
         </div>
       </div>
     </div>
