@@ -6,12 +6,12 @@
               @mouseup="stopDrawing">
         <p>Draw your own cover image!</p>
       </canvas>
+      <button class="btn button-inline-clear text-custom-light" @click="clearCanvas">Clear</button>
     </div>
     <div class="card limit-width">
       <label for="brushSize" class="form-label">Brush</label>
       <input v-model="brushSize" @change="updateBrushSize" type="range" class="form-range" min="1" max="10" id="brushSize"/>
     </div>
-
     <div class="card limit-width">
       <label for="colorControl" class="form-label">Color</label>
       <input v-model="color" @change="updateColor" type="color" class="form-control form-control-color" id="colorControl">
@@ -87,6 +87,10 @@ export default {
 
     updateColor() {
       this.canvas.strokeStyle = this.color;
+    },
+
+    clearCanvas() {
+      this.canvas.clearRect(0, 0, 900, 500);
     },
 
     setAndEmitImageData() {

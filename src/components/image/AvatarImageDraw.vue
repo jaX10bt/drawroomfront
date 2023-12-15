@@ -6,6 +6,7 @@
               @mouseup="stopDrawing">
         <p>Draw your own avatar image!</p>
       </canvas>
+      <button class="btn button-inline-clear text-custom-light" @click="clearCanvas">Clear</button>
     </div>
     <div class="card limit-width">
       <label for="brushSize" class="form-label">Brush</label>
@@ -87,6 +88,10 @@ export default {
 
     updateColor() {
       this.canvas.strokeStyle = this.color;
+    },
+
+    clearCanvas() {
+      this.canvas.clearRect(0, 0, 200, 200);
     },
 
     setAndEmitImageData() {
